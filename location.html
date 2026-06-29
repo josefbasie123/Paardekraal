@@ -49,8 +49,7 @@
       <div id="map" style="width:100%; height:480px; background:#e8ddd2;"></div>
 
       <div style="text-align:center; padding:16px 0 4px;">
-        <p id="coords-display" style="font-size:0.82rem; color:#7a6350; margin:0 0 12px;"></p>
-        <a id="gmaps-link" href="#" target="_blank" rel="noopener"
+<a id="gmaps-link" href="#" target="_blank" rel="noopener"
            style="display:inline-block; background:#5c3d1e; color:#fff; padding:11px 26px; border-radius:4px; text-decoration:none; font-size:0.9rem; letter-spacing:0.03em;">
           Open in Google Maps →
         </a>
@@ -79,20 +78,7 @@
               'Coordinates: ' + lat.toFixed(6) + ', ' + lng.toFixed(6);
           }
 
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-              function (pos) {
-                setLocation(pos.coords.latitude, pos.coords.longitude);
-              },
-              function () {
-                // fallback to Northern Cape center
-                setLocation(-31.857977, 19.271431);
-              },
-              { enableHighAccuracy: true, timeout: 10000 }
-            );
-          } else {
-            setLocation(-31.857977, 19.271431);
-          }
+          setLocation(-29.950387, 17.961001);
         })();
       </script>
     </section>
