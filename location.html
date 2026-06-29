@@ -70,7 +70,7 @@
             map.setView([lat, lng], 15);
             if (marker) map.removeLayer(marker);
             marker = L.marker([lat, lng]).addTo(map)
-              .bindPopup('<strong>Paardekraal Kliphuis</strong><br>Northern Cape, South Africa')
+              .bindPopup('<strong>Paardekraal Kliphuis Reception</strong><br>Northern Cape, South Africa')
               .openPopup();
             var gmapsUrl = 'https://www.google.com/maps?q=' + lat + ',' + lng;
             document.getElementById('gmaps-link').href = gmapsUrl;
