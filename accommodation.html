@@ -40,6 +40,108 @@
         <p class="lead">Content coming soon — add your accommodation details here.</p>
       </div>
     </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container in" data-reveal="">
+
+        <p style="color:#5c3d1e; font-size:0.95rem; margin-bottom:24px;">
+          Availability is updated by hand. To book a date marked Available, message us on WhatsApp (details in the footer).
+        </p>
+
+        <div id="booking-calendar" style="max-width:560px; margin:0 auto; font-family:inherit;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+            <button id="cal-prev" aria-label="Previous month" style="background:none; border:1px solid #c2b49a; border-radius:4px; padding:6px 14px; cursor:pointer; font-size:1.1rem; color:#5c3d1e;">&#8249;</button>
+            <span id="cal-title" style="font-family:'Lora',serif; font-size:1.1rem; color:#3b2310; font-weight:600;"></span>
+            <button id="cal-next" aria-label="Next month" style="background:none; border:1px solid #c2b49a; border-radius:4px; padding:6px 14px; cursor:pointer; font-size:1.1rem; color:#5c3d1e;">&#8250;</button>
+          </div>
+
+          <div id="cal-grid" style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; text-align:center;"></div>
+
+          <div id="cal-legend" style="display:flex; gap:18px; margin-top:14px; font-size:0.82rem; color:#7a6350;">
+            <span><span style="display:inline-block;width:12px;height:12px;background:#e8ddd2;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>Available</span>
+            <span><span style="display:inline-block;width:12px;height:12px;background:#5c3d1e;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>Selected</span>
+            <span><span style="display:inline-block;width:12px;height:12px;background:#d6cfc4;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>Past</span>
+          </div>
+
+          <div id="cal-summary" style="margin-top:18px; padding:14px 16px; background:#f7f3ef; border-radius:6px; display:none;">
+            <p style="margin:0 0 10px; color:#3b2310; font-size:0.95rem;">
+              <strong>Check-in:</strong> <span id="cal-checkin">—</span> &nbsp;|&nbsp;
+              <strong>Check-out:</strong> <span id="cal-checkout">—</span> &nbsp;|&nbsp;
+              <strong>Nights:</strong> <span id="cal-nights">—</span>
+            </p>
+            <a id="cal-whatsapp" href="#" target="_blank" rel="noopener"
+              style="display:inline-block; background:#5c3d1e; color:#fff; padding:10px 22px; border-radius:4px; text-decoration:none; font-size:0.9rem; letter-spacing:0.03em;">
+              Message us on WhatsApp →
+            </a>
+          </div>
+        </div>
+
+        <style>
+          .cal-day { padding:8px 4px; border-radius:4px; cursor:pointer; font-size:0.88rem; background:#e8ddd2; color:#3b2310; transition:background 0.15s; }
+          .cal-day:hover { background:#c2b49a; }
+          .cal-day.past { background:#d6cfc4; color:#a8998a; cursor:default; pointer-events:none; }
+          .cal-day.selected { background:#5c3d1e; color:#fff; }
+          .cal-day.in-range { background:#b89a7a; color:#fff; }
+          .cal-day.empty { background:none; cursor:default; pointer-events:none; }
+          .cal-weekday { font-size:0.78rem; color:#7a6350; padding-bottom:6px; font-weight:600; }
+        </style>
+
+        <script>
+          (function () {
+            const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            const DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+            let now = new Date(), viewYear = now.getFullYear(), viewMonth = now.getMonth();
+            let checkIn = null, checkOut = null;
+            function fmt(d) { return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear(); }
+            function render() {
+              document.getElementById('cal-title').textContent = MONTHS[viewMonth] + ' ' + viewYear;
+              const grid = document.getElementById('cal-grid');
+              grid.innerHTML = '';
+              DAYS.forEach(d => { const h = document.createElement('div'); h.className='cal-weekday'; h.textContent=d; grid.appendChild(h); });
+              const first = new Date(viewYear, viewMonth, 1).getDay();
+              const days = new Date(viewYear, viewMonth + 1, 0).getDate();
+              const today = new Date(); today.setHours(0,0,0,0);
+              for (let i = 0; i < first; i++) { const e=document.createElement('div'); e.className='cal-day empty'; grid.appendChild(e); }
+              for (let d = 1; d <= days; d++) {
+                const date = new Date(viewYear, viewMonth, d);
+                const cell = document.createElement('div'); cell.className='cal-day'; cell.textContent=d;
+                if (date < today) { cell.classList.add('past'); }
+                else {
+                  const ts=date.getTime(), inTs=checkIn?checkIn.getTime():null, outTs=checkOut?checkOut.getTime():null;
+                  if (inTs && ts===inTs) cell.classList.add('selected');
+                  else if (outTs && ts===outTs) cell.classList.add('selected');
+                  else if (inTs && outTs && ts>inTs && ts<outTs) cell.classList.add('in-range');
+                  cell.addEventListener('click', () => pick(date));
+                }
+                grid.appendChild(cell);
+              }
+              updateSummary();
+            }
+            function pick(date) {
+              if (!checkIn || (checkIn && checkOut)) { checkIn=date; checkOut=null; }
+              else if (date <= checkIn) { checkIn=date; checkOut=null; }
+              else { checkOut=date; }
+              render();
+            }
+            function updateSummary() {
+              const s = document.getElementById('cal-summary');
+              if (checkIn && checkOut) {
+                const nights = Math.round((checkOut - checkIn) / 86400000);
+                document.getElementById('cal-checkin').textContent = fmt(checkIn);
+                document.getElementById('cal-checkout').textContent = fmt(checkOut);
+                document.getElementById('cal-nights').textContent = nights;
+                const msg = encodeURIComponent('Hi! I would like to book Paardekraal Kliphuis.\n\nCheck-in: ' + fmt(checkIn) + '\nCheck-out: ' + fmt(checkOut) + '\nNights: ' + nights);
+                document.getElementById('cal-whatsapp').href = 'https://wa.me/27834775303?text=' + msg;
+                s.style.display = 'block';
+              } else { s.style.display = 'none'; }
+            }
+            document.getElementById('cal-prev').addEventListener('click', () => { viewMonth--; if(viewMonth<0){viewMonth=11;viewYear--;} render(); });
+            document.getElementById('cal-next').addEventListener('click', () => { viewMonth++; if(viewMonth>11){viewMonth=0;viewYear++;} render(); });
+            render();
+          })();
+        </script>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer" style="padding:18px 0;">
