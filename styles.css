@@ -263,6 +263,8 @@ main { display: block; }
   font-size: clamp(19px, 2.4vw, 23px);
   color: var(--espresso);
   max-width: 64ch;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .prose { max-width: 70ch; color: var(--espresso); }
