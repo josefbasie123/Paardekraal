@@ -1,108 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paardekraal Kliphuis — A destination worth the journey</title>
-  <meta name="description" content="Paardekraal Kliphuis — a coffee-warm farm stay in the Western Cape, South Africa. A destination worth the journey.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paardekraal Kliphuis | Namaqualand Farm Stay</title>
+<meta name="description" content="Paardekraal Kliphuis — a self-catering stone cottage on a working farm between Springbok and Kamieskroon, Northern Cape. A destination worth the journey.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --terracotta:#b5502e;
+    --terracotta-dark:#8f3c20;
+    --gold:#d99a3b;
+    --cream:#faf3e9;
+    --cream-dark:#f0e4d2;
+    --brown:#3a2c22;
+    --brown-soft:#6b5847;
+    --white:#ffffff;
+    --shadow:0 10px 30px rgba(58,44,34,0.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--brown);
+    background:var(--cream);
+    line-height:1.6;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .container{max-width:1140px;margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-block;
+    padding:14px 32px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:.3px;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--terracotta);color:var(--white);box-shadow:0 8px 20px rgba(181,80,46,0.35);}
+  .btn-primary:hover{background:var(--terracotta-dark);}
+  .btn-outline{background:transparent;color:var(--white);border:2px solid var(--white);}
+  .btn-outline:hover{background:var(--white);color:var(--brown);}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--terracotta);
+  }
+  h1,h2,h3{font-family:'Lora',Georgia,'Times New Roman',serif;color:var(--brown);}
+  section{padding:88px 0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 48px;}
+  .section-head h2{font-size:34px;margin-top:10px;}
+  .section-head p{color:var(--brown-soft);margin-top:14px;font-size:16px;}
+
+  /* NAV */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(250,243,233,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(58,44,34,0.08);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1140px;margin:0 auto;}
+  .logo{font-family:'Lora',serif;font-weight:700;font-size:20px;letter-spacing:.5px;}
+  .logo span{color:var(--terracotta);}
+  .nav-links{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:600;}
+  .nav-links a{text-decoration:none;color:var(--brown-soft);}
+  .nav-links a:hover{color:var(--terracotta);}
+  .nav-cta{display:none;}
+  @media(min-width:720px){.nav-cta{display:inline-block;}}
+  .nav-links{display:none;}
+  @media(min-width:720px){.nav-links{display:flex;}}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    height:92vh;
+    min-height:560px;
+    display:flex;
+    align-items:flex-end;
+    color:var(--white);
+    background:linear-gradient(180deg, rgba(30,20,12,0.15) 0%, rgba(20,14,10,0.75) 100%), url('images/001.jpeg') center/cover no-repeat;
+  }
+  .hero-content{padding-bottom:90px;max-width:640px;}
+  .hero-content .eyebrow{color:var(--gold);}
+  .hero-content h1{color:var(--white);font-size:48px;line-height:1.15;margin:14px 0 16px;}
+  .hero-content p{font-size:17px;color:#f2e9dd;margin-bottom:30px;max-width:520px;}
+  .hero-buttons{display:flex;gap:16px;flex-wrap:wrap;}
+  .scroll-cue{
+    position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+    color:var(--white);font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.85;
+  }
+
+  /* AMENITIES */
+  .amenities-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  @media(min-width:640px){.amenities-grid{grid-template-columns:repeat(4,1fr);}}
+  .amenity-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:28px 18px;
+    text-align:center;
+    box-shadow:var(--shadow);
+  }
+  .amenity-card .icon{font-size:30px;margin-bottom:10px;}
+  .amenity-card h4{font-size:15px;font-weight:700;margin-bottom:4px;}
+  .amenity-card p{font-size:13px;color:var(--brown-soft);}
+  .highlights{
+    margin-top:56px;
+    display:grid;
+    gap:24px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:720px){.highlights{grid-template-columns:1fr 1fr;}}
+  .highlight-item{
+    display:flex;gap:16px;align-items:flex-start;
+    background:var(--cream-dark);
+    padding:20px;border-radius:var(--radius);
+  }
+  .highlight-item .num{
+    flex:none;width:38px;height:38px;border-radius:50%;
+    background:var(--terracotta);color:var(--white);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+  }
+  .highlight-item h4{font-size:16px;margin-bottom:4px;}
+  .highlight-item p{font-size:14px;color:var(--brown-soft);}
+
+  /* LOCATION */
+  .location-wrap{display:grid;gap:40px;grid-template-columns:1fr;align-items:center;}
+  @media(min-width:820px){.location-wrap{grid-template-columns:1fr 1fr;}}
+  .location-text .eyebrow{margin-bottom:10px;display:block;}
+  .location-text h2{font-size:32px;margin-bottom:16px;}
+  .location-text p{color:var(--brown-soft);margin-bottom:14px;}
+  .nearby-list{list-style:none;margin-top:20px;display:grid;gap:10px;}
+  .nearby-list li{display:flex;gap:10px;font-size:14px;align-items:flex-start;}
+  .nearby-list li .dot{color:var(--terracotta);font-weight:700;}
+  .map-frame{
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    border:0;
+    width:100%;
+    height:340px;
+  }
+
+  /* GALLERY */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  @media(min-width:720px){
+    .gallery-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;}
+    .gallery-grid a:nth-child(1){grid-column:span 2;grid-row:span 2;}
+  }
+  .gallery-grid a{
+    display:block;border-radius:var(--radius);overflow:hidden;
+    position:relative;height:100%;
+  }
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease;}
+  .gallery-grid a:hover img{transform:scale(1.06);}
+  .gallery-cta{text-align:center;margin-top:36px;}
+
+  /* BOOKING */
+  .booking{background:var(--cream-dark);}
+  .booking-wrap{
+    display:grid;gap:40px;grid-template-columns:1fr;
+    background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:40px;
+  }
+  @media(min-width:820px){.booking-wrap{grid-template-columns:1fr 1fr;padding:48px;}}
+  .booking-info h2{font-size:30px;margin-bottom:14px;}
+  .booking-info p{color:var(--brown-soft);margin-bottom:22px;}
+  .booking-options{display:flex;flex-direction:column;gap:14px;}
+  .booking-options .btn{width:100%;text-align:center;}
+  .btn-secondary{background:var(--cream-dark);color:var(--brown);}
+  .btn-secondary:hover{background:#e6d5bc;}
+  form{display:flex;flex-direction:column;gap:14px;}
+  form label{font-size:13px;font-weight:700;color:var(--brown-soft);margin-bottom:-8px;}
+  form input, form textarea{
+    padding:12px 14px;border-radius:8px;border:1px solid #ddccb8;
+    font-family:inherit;font-size:14px;background:var(--cream);
+  }
+  form textarea{resize:vertical;min-height:90px;}
+  form .btn{margin-top:6px;}
+  .form-note{font-size:12px;color:var(--brown-soft);text-align:center;}
+
+  /* HOST */
+  .host-wrap{
+    display:grid;gap:40px;grid-template-columns:1fr;align-items:center;
+  }
+  @media(min-width:760px){.host-wrap{grid-template-columns:220px 1fr;}}
+  .host-photo{
+    width:180px;height:180px;border-radius:50%;
+    background:linear-gradient(135deg,var(--terracotta),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--white);font-family:'Lora',serif;font-size:52px;font-weight:700;
+    margin:0 auto;box-shadow:var(--shadow);
+  }
+  .host-text .eyebrow{display:block;margin-bottom:10px;}
+  .host-text h2{font-size:30px;margin-bottom:14px;}
+  .host-text p{color:var(--brown-soft);margin-bottom:12px;}
+  .host-points{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;}
+  .host-points span{
+    background:var(--cream-dark);padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;
+  }
+
+  /* FOOTER */
+  footer{background:var(--brown);color:#d9c9b8;padding:50px 0 24px;}
+  .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;margin-bottom:30px;}
+  .footer-logo{font-family:'Lora',serif;font-size:20px;color:var(--white);font-weight:700;}
+  .footer-logo span{color:var(--gold);}
+  .footer-contacts{display:flex;flex-wrap:wrap;gap:24px;}
+  .footer-contacts a{display:flex;align-items:center;gap:8px;text-decoration:none;color:#d9c9b8;font-size:14px;}
+  .footer-contacts a:hover{color:var(--gold);}
+  .footer-contacts svg{width:18px;height:18px;fill:currentColor;flex:none;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;margin-top:30px;
+    font-size:12px;text-align:center;color:#a6957f;
+  }
+</style>
 </head>
-<body data-page="home">
+<body>
 
-  <header class="site-header" style="background-position: center calc(50% + 0px);">
-    <h1 class="site-title">Paardekraal Kliphuis</h1>
-    <hr class="header-rule">
-    <p class="site-tagline">A destination worth the journey</p>
-  </header>
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">Paardekraal <span>Kliphuis</span></div>
+    <ul class="nav-links">
+      <li><a href="#amenities">The Cottage</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#host">Host</a></li>
+    </ul>
+    <a href="#booking" class="btn btn-primary nav-cta" style="padding:10px 24px;font-size:14px;">Check Availability</a>
+  </div>
+</header>
 
-  <nav class="site-nav" aria-label="Primary">
-    <div class="nav-inner">
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
-        <span class="bars"><span></span></span> Menu
-      </button>
-      <ul class="nav-list" id="nav-list">
-        <li><a href="index.html" data-nav="home" aria-current="page">Home</a></li>
-        <li><a href="accommodation.html" data-nav="accommodation">Accommodation</a></li>
-        <li><a href="activities.html" data-nav="activities">Activities</a></li>
-        <li><a href="location.html" data-nav="location">Location</a></li>
-        <li><a href="gallery.html" data-nav="gallery">Gallery</a></li>
-        <li><a href="general-info.html" data-nav="info">General Info</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <div id="hero-slideshow" style="width:100%; height:420px; overflow:hidden; position:relative;">
-    <div id="hero-track" style="display:flex; height:100%;">
-      <img src="images/002.jpeg" alt="Paardekraal Kliphuis" style="min-width:100%; height:100%; object-fit:cover; object-position:center; flex-shrink:0;">
-      <img src="images/003.jpeg" alt="Paardekraal Kliphuis" style="min-width:100%; height:100%; object-fit:cover; object-position:center; flex-shrink:0;">
-      <img src="images/002.jpeg" alt="Paardekraal Kliphuis" style="min-width:100%; height:100%; object-fit:cover; object-position:center; flex-shrink:0;">
+<!-- 1. HERO -->
+<section class="hero" id="top">
+  <div class="container hero-content">
+    <span class="eyebrow">Between Springbok &amp; Kamieskroon · Northern Cape</span>
+    <h1>A Destination Worth the Journey</h1>
+    <p>Namaqualand is regarded as a biodiversity hotspot, boasting the richest succulent flora on earth. Paardekraal Kliphuis puts you right in the heart of this remarkable landscape — a self-catering stone cottage on a working farm.</p>
+    <div class="hero-buttons">
+      <a href="#booking" class="btn btn-primary">Check Availability</a>
+      <a href="#gallery" class="btn btn-outline">View Gallery</a>
     </div>
   </div>
-  <script>
-    (function(){
-      var idx = 0, total = 2, sliding = false;
-      var track = document.getElementById('hero-track');
-      setInterval(function(){
-        if (sliding) return;
-        sliding = true;
-        idx++;
-        track.style.transition = 'transform 1.4s cubic-bezier(0.77,0,0.175,1)';
-        track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-        setTimeout(function(){
-          if (idx === total) {
-            track.style.transition = 'none';
-            track.style.transform = 'translateX(0)';
-            idx = 0;
-          }
-          sliding = false;
-        }, 1450);
-      }, 4500);
-    })();
-  </script>
+  <div class="scroll-cue">Scroll to explore ↓</div>
+</section>
 
-  <main>
-    <section class="section welcome">
-      <div class="container editable in" data-reveal="">
-        <p class="lead" style="text-align:center;">
-          Namaqualand is regarded as a biodiversity hotspot boasting the richest succulent flora on earth. Paardekraal Kliphuis puts you right in the heart of this remarkable landscape.
-        </p>
-        <p class="lead" style="margin-top:18px;">
-          The self-catering stone cottage is nestled on a working farm between Springbok and Kamieskroon, where the rhythm is slow and it is easy to breathe. There are no crowds, no infrastructure to lean on and no shortcuts.
-        </p>
-        <p class="lead" style="margin-top:18px;">
-          The land asks something of you and in return it gives you silence, strangeness and beauty of a kind that stays with you long after you left.
-        </p>
+<!-- 2. PROPERTY HIGHLIGHTS & AMENITIES -->
+<section id="amenities">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The Cottage</span>
+      <h2>Everything You Need, Nothing You Don't</h2>
+      <p>Built from the same rough granite that litters the surrounding hillside, sun-bleached and mortared by hands that knew this landscape intimately.</p>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity-card"><div class="icon">🔥</div><h4>Fireplace &amp; Woodstove</h4><p>Built-in fireplace for cooking or keeping warm</p></div>
+      <div class="amenity-card"><div class="icon">🍳</div><h4>Fully Equipped Kitchen</h4><p>Everything you need to self-cater</p></div>
+      <div class="amenity-card"><div class="icon">🛁</div><h4>En-Suite Bathroom</h4><p>Unpretentious but deeply comfortable</p></div>
+      <div class="amenity-card"><div class="icon">🌄</div><h4>Private Veranda</h4><p>North-East facing, with a braai area</p></div>
+    </div>
+    <div class="highlights">
+      <div class="highlight-item">
+        <div class="num">1</div>
+        <div><h4>Namaqualand Biodiversity Hotspot</h4><p>The richest succulent flora on earth, right outside the door.</p></div>
       </div>
-    </section>
+      <div class="highlight-item">
+        <div class="num">2</div>
+        <div><h4>Spring Wildflower Bloom</h4><p>Between late July and September, the plains erupt into carpets of orange, yellow, purple and white.</p></div>
+      </div>
+      <div class="highlight-item">
+        <div class="num">3</div>
+        <div><h4>Birdwatching, Hiking &amp; Cycling</h4><p>Rolling plains, granite kopjes and quiet gravel roads for those who slow down.</p></div>
+      </div>
+      <div class="highlight-item">
+        <div class="num">4</div>
+        <div><h4>Silence &amp; Solitude</h4><p>No crowds, no infrastructure to lean on, no shortcuts — just the land.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- 3. LOCATION OVERVIEW -->
+<section id="location" style="background:var(--cream-dark);">
+  <div class="container">
+    <div class="location-wrap">
+      <div class="location-text">
+        <span class="eyebrow">Location Overview</span>
+        <h2>Namaqualand, Northern Cape</h2>
+        <p>Paardekraal Kliphuis sits on the R539 Droëdap road, on a working farm between Springbok and Kamieskroon. The rhythm here is slow, and it is easy to breathe.</p>
+        <p>The road in requires reasonable ground clearance — please check with us before you travel if you are unsure about your vehicle.</p>
+        <ul class="nearby-list">
+          <li><span class="dot">●</span> On the R539 Droëdap road, between Springbok &amp; Kamieskroon</li>
+          <li><span class="dot">●</span> Close to Namaqua National Park &amp; the Skilpad Wildflower Reserve</li>
+        </ul>
+      </div>
+      <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=-29.950387,17.961001&output=embed">
+      </iframe>
+    </div>
+  </div>
+</section>
 
-  </main>
+<!-- 4. PHOTO GALLERY -->
+<section class="booking" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Photo Gallery</span>
+      <h2>A Look Around the Property</h2>
+      <p>The view changes by the hour — here's a small taste.</p>
+    </div>
+    <div class="gallery-grid">
+      <a href="images/001.jpeg" target="_blank"><img src="images/001.jpeg" alt="Sunset over the rocky ridge"></a>
+      <a href="images/003.jpeg" target="_blank"><img src="images/003.jpeg" alt="Wildflower valley with mountains"></a>
+      <a href="images/004.jpeg" target="_blank"><img src="images/004.jpeg" alt="Gold wildflower meadow"></a>
+      <a href="images/005.jpeg" target="_blank"><img src="images/005.jpeg" alt="Baby goat on the farm"></a>
+      <a href="images/006.jpeg" target="_blank"><img src="images/006.jpeg" alt="Goats resting on the property"></a>
+      <a href="images/002.jpeg" target="_blank"><img src="images/002.jpeg" alt="Storm clouds over the veld"></a>
+    </div>
+  </div>
+</section>
 
-  <footer class="site-footer" style="padding:18px 0;">
-    <div class="footer-inner" style="padding:0 24px;">
+<!-- 5. DIRECT BOOKING / CONTACT -->
+<section id="booking">
+  <div class="container">
+    <div class="booking-wrap">
+      <div class="booking-info">
+        <span class="eyebrow">Book Your Stay</span>
+        <h2>Ready to Unplug?</h2>
+        <p>Availability is updated by hand. Message us on WhatsApp to check dates, or send a message below and we'll reply directly.</p>
+        <div class="booking-options">
+          <a href="https://wa.me/27834775303" target="_blank" rel="noopener" class="btn btn-primary">Message us on WhatsApp</a>
+          <a href="mailto:stay@paardekraalkliphuis.co.za" class="btn btn-secondary">Send an Email</a>
+        </div>
+      </div>
+      <form id="inquiry-form">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your name" required>
+        <label for="dates">Preferred Dates</label>
+        <input id="dates" type="text" placeholder="e.g. 12–15 September">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Any questions about the stay?"></textarea>
+        <button type="submit" class="btn btn-primary">Send via WhatsApp</button>
+        <p class="form-note">Sends your message straight to us on WhatsApp — nothing is stored on this site.</p>
+      </form>
+      <script>
+        document.getElementById('inquiry-form').addEventListener('submit', function(e){
+          e.preventDefault();
+          var name = document.getElementById('name').value;
+          var dates = document.getElementById('dates').value;
+          var message = document.getElementById('message').value;
+          var text = 'Hi! My name is ' + name + '.\n' +
+            (dates ? 'Preferred dates: ' + dates + '\n' : '') +
+            (message ? 'Message: ' + message : '');
+          window.open('https://wa.me/27834775303?text=' + encodeURIComponent(text), '_blank');
+        });
+      </script>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ABOUT THE HOST -->
+<section id="host" style="background:var(--cream-dark);">
+  <div class="container">
+    <div class="host-wrap">
+      <div class="host-photo">CJ</div>
+      <div class="host-text">
+        <span class="eyebrow">About Your Host</span>
+        <h2>Hi, I'm Cornelis</h2>
+        <p>Paardekraal Kliphuis is a working farm in the heart of Namaqualand. I love sharing this part of the world with guests looking for quiet, and space to breathe — a landscape that asks something of you, and gives back silence, strangeness and beauty in return.</p>
+        <div class="host-points">
+          <span>🌾 Working Farm</span>
+          <span>🌸 Wildflower Season</span>
+          <span>🏔️ Northern Cape, South Africa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-logo">Paardekraal <span>Kliphuis</span></div>
       <div class="footer-contacts">
         <a href="https://wa.me/27834775303" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.02h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"></path></svg>
-          <span>WhatsApp: 083 477 5303</span>
+          <span>083 477 5303</span>
         </a>
         <a href="mailto:stay@paardekraalkliphuis.co.za" aria-label="Send an email">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.01L4.4 7H19.6L12 12.01ZM4 8.24V17h16V8.24l-7.43 4.88a1 1 0 0 1-1.14 0L4 8.24Z"></path></svg>
-          <span>Gmail: stay@paardekraalkliphuis.co.za</span>
+          <span>stay@paardekraalkliphuis.co.za</span>
         </a>
         <a href="https://www.instagram.com/paardekraalkliphuis" target="_blank" rel="noopener" aria-label="Follow on Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-          <span>Instagram: @paardekraalkliphuis</span>
+          <span>@paardekraalkliphuis</span>
         </a>
       </div>
-      <p class="footer-meta" style="margin-top:10px;">© <span id="year">2026</span> Paardekraal Kliphuis · Northern Cape, South Africa</p>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      © <span id="year">2026</span> Paardekraal Kliphuis · Northern Cape, South Africa
+    </div>
+  </div>
+</footer>
 
-  <script src="js/partials.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 </body>
 </html>
