@@ -69,16 +69,26 @@
     backdrop-filter:blur(8px);
     border-bottom:1px solid rgba(58,44,34,0.08);
   }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1140px;margin:0 auto;}
-  .logo{font-family:'Lora',serif;font-weight:700;font-size:20px;letter-spacing:.5px;}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1140px;margin:0 auto;position:relative;}
+  .logo{font-family:'Lora',serif;font-weight:700;font-size:30px;letter-spacing:.5px;}
   .logo span{color:var(--terracotta);}
-  .nav-links{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:600;}
-  .nav-links a{text-decoration:none;color:var(--brown-soft);}
-  .nav-links a:hover{color:var(--terracotta);}
-  .nav-cta{display:none;}
-  @media(min-width:720px){.nav-cta{display:inline-block;}}
-  .nav-links{display:none;}
-  @media(min-width:720px){.nav-links{display:flex;}}
+  .nav-toggle{
+    display:flex;flex-direction:column;justify-content:center;gap:5px;
+    width:44px;height:44px;background:none;border:none;cursor:pointer;padding:0;
+  }
+  .nav-toggle span{display:block;width:26px;height:3px;border-radius:2px;background:var(--brown);}
+  .nav-menu{
+    position:absolute;top:calc(100% + 8px);right:24px;
+    background:var(--white);border-radius:10px;box-shadow:var(--shadow);
+    list-style:none;padding:10px 0;min-width:200px;
+    display:none;flex-direction:column;z-index:60;
+  }
+  .nav-menu.open{display:flex;}
+  .nav-menu li a{display:block;padding:12px 22px;text-decoration:none;color:var(--brown-soft);font-weight:600;font-size:14px;}
+  .nav-menu li a:hover{color:var(--terracotta);background:var(--cream);}
+  .nav-menu li.nav-menu-cta{padding:6px 16px 4px;}
+  .nav-menu li.nav-menu-cta a{background:var(--terracotta);color:var(--white);border-radius:999px;text-align:center;padding:10px 16px;}
+  .nav-menu li.nav-menu-cta a:hover{background:var(--terracotta-dark);color:var(--white);}
 
   /* HERO */
   .hero{
@@ -237,15 +247,34 @@
 <header class="nav">
   <div class="nav-inner">
     <div class="logo">Paardekraal <span>Kliphuis</span></div>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
       <li><a href="#amenities">The Cottage</a></li>
       <li><a href="#location">Location</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#host">Host</a></li>
+      <li class="nav-menu-cta"><a href="#booking">Check Availability</a></li>
     </ul>
-    <a href="#booking" class="btn btn-primary nav-cta" style="padding:10px 24px;font-size:14px;">Check Availability</a>
   </div>
 </header>
+<script>
+  (function(){
+    var toggle = document.getElementById('nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    toggle.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.addEventListener('click', function(e){
+      if (e.target.tagName === 'A') {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
 
 <!-- 1. HERO -->
 <section class="hero" id="top">
