@@ -7,7 +7,7 @@
 <meta name="description" content="Paardekraal Kliphuis — a self-catering stone cottage on a working farm between Springbok and Kamieskroon, Northern Cape. A destination worth the journey.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --terracotta:#b5502e;
@@ -32,252 +32,190 @@
   img{max-width:100%;display:block;}
   a{color:inherit;}
   .container{max-width:1140px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;color:var(--brown);font-weight:600;}
+  .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:700;color:var(--terracotta);}
   .btn{
-    display:inline-block;
-    padding:14px 32px;
-    border-radius:999px;
-    font-weight:600;
-    font-size:15px;
-    letter-spacing:.3px;
-    text-decoration:none;
-    cursor:pointer;
-    border:none;
+    display:inline-block;padding:14px 34px;border-radius:999px;font-weight:600;font-size:13px;
+    letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;
     transition:transform .15s ease, box-shadow .15s ease;
   }
   .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:var(--terracotta);color:var(--white);box-shadow:0 8px 20px rgba(181,80,46,0.35);}
+  .btn-primary{background:var(--terracotta);color:var(--white);box-shadow:0 8px 20px rgba(181,80,46,0.3);}
   .btn-primary:hover{background:var(--terracotta-dark);}
-  .btn-outline{background:transparent;color:var(--white);border:2px solid var(--white);}
-  .btn-outline:hover{background:var(--white);color:var(--brown);}
-  .eyebrow{
-    text-transform:uppercase;
-    letter-spacing:2px;
-    font-size:13px;
-    font-weight:700;
-    color:var(--terracotta);
-  }
-  h1,h2,h3{font-family:'Lora',Georgia,'Times New Roman',serif;color:var(--brown);}
-  section{padding:88px 0;}
-  .section-head{text-align:center;max-width:640px;margin:0 auto 48px;}
-  .section-head h2{font-size:34px;margin-top:10px;}
-  .section-head p{color:var(--brown-soft);margin-top:14px;font-size:16px;}
+  .btn-outline{background:transparent;color:var(--brown);border:1.5px solid var(--brown);}
+  .btn-outline:hover{background:var(--brown);color:var(--white);}
+  section{padding:100px 0;}
 
   /* NAV */
   header.nav{
-    position:fixed;top:0;left:0;right:0;z-index:50;
-    background:rgba(250,243,233,0.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(58,44,34,0.08);
+    background:var(--cream);border-bottom:1px solid rgba(58,44,34,0.08);
+    padding:20px 0;
   }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1140px;margin:0 auto;position:relative;}
-  .logo{font-family:'Lora',serif;font-weight:700;font-size:30px;letter-spacing:.5px;}
-  .logo span{color:var(--terracotta);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1140px;margin:0 auto;padding:0 24px;flex-wrap:wrap;gap:16px;position:relative;}
+  .logo{font-family:'Playfair Display',serif;font-weight:700;font-size:24px;letter-spacing:2px;text-align:center;}
+  .nav-links{display:none;list-style:none;gap:26px;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+  .nav-links a{text-decoration:none;color:var(--brown-soft);}
+  .nav-links a:hover{color:var(--terracotta);}
+  @media(min-width:860px){.nav-links{display:flex;}}
+  .nav-book-btn{display:none;}
+  @media(min-width:860px){.nav-book-btn{display:inline-block;}}
   .nav-toggle{
     display:flex;flex-direction:column;justify-content:center;gap:5px;
-    width:44px;height:44px;background:none;border:none;cursor:pointer;padding:0;
+    width:40px;height:40px;background:none;border:none;cursor:pointer;padding:0;
   }
-  .nav-toggle span{display:block;width:26px;height:3px;border-radius:2px;background:var(--brown);}
+  @media(min-width:860px){.nav-toggle{display:none;}}
+  .nav-toggle span{display:block;width:24px;height:2.5px;border-radius:2px;background:var(--brown);}
   .nav-menu{
-    position:absolute;top:calc(100% + 8px);right:24px;
-    background:var(--white);border-radius:10px;box-shadow:var(--shadow);
-    list-style:none;padding:10px 0;min-width:200px;
-    display:none;flex-direction:column;z-index:60;
+    position:absolute;top:calc(100% + 8px);right:24px;background:var(--white);border-radius:10px;
+    box-shadow:var(--shadow);list-style:none;padding:8px 0;min-width:190px;display:none;flex-direction:column;z-index:60;
   }
   .nav-menu.open{display:flex;}
-  .nav-menu li a{display:block;padding:12px 22px;text-decoration:none;color:var(--brown-soft);font-weight:600;font-size:14px;}
-  .nav-menu li a:hover{color:var(--terracotta);background:var(--cream);}
-  .nav-menu li.nav-menu-cta{padding:6px 16px 4px;}
-  .nav-menu li.nav-menu-cta a{background:var(--terracotta);color:var(--white);border-radius:999px;text-align:center;padding:10px 16px;}
-  .nav-menu li.nav-menu-cta a:hover{background:var(--terracotta-dark);color:var(--white);}
+  .nav-menu a{display:block;padding:11px 20px;text-decoration:none;color:var(--brown-soft);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.5px;}
+  .nav-menu a:hover{color:var(--terracotta);background:var(--cream);}
+  @media(min-width:860px){.nav-toggle-wrap{display:none;}}
 
-  /* HERO */
-  .hero{
-    position:relative;
-    height:92vh;
-    min-height:560px;
-    display:flex;
-    align-items:flex-end;
-    color:var(--white);
-    background:linear-gradient(180deg, rgba(30,20,12,0.15) 0%, rgba(20,14,10,0.75) 100%), url('images/001.jpeg') center/cover no-repeat;
-  }
-  .hero-content{padding-bottom:90px;max-width:640px;}
-  .hero-content .eyebrow{color:var(--gold);}
-  .hero-content h1{color:var(--white);font-size:48px;line-height:1.15;margin:14px 0 16px;}
-  .hero-content p{font-size:17px;color:#f2e9dd;margin-bottom:30px;max-width:520px;}
-  .hero-buttons{display:flex;gap:16px;flex-wrap:wrap;}
-  .scroll-cue{
-    position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
-    color:var(--white);font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.85;
-  }
+  /* HERO IMAGE */
+  .hero-img{width:100%;height:56vh;min-height:340px;object-fit:cover;display:block;}
 
-  /* AMENITIES */
-  .amenities-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-  }
-  @media(min-width:640px){.amenities-grid{grid-template-columns:repeat(4,1fr);}}
-  .amenity-card{
-    background:var(--white);
-    border-radius:var(--radius);
-    padding:28px 18px;
-    text-align:center;
-    box-shadow:var(--shadow);
-  }
-  .amenity-card .icon{font-size:30px;margin-bottom:10px;}
-  .amenity-card h4{font-size:15px;font-weight:700;margin-bottom:4px;}
-  .amenity-card p{font-size:13px;color:var(--brown-soft);}
-  .highlights{
-    margin-top:56px;
-    display:grid;
-    gap:24px;
-    grid-template-columns:1fr;
-  }
-  @media(min-width:720px){.highlights{grid-template-columns:1fr 1fr;}}
-  .highlight-item{
-    display:flex;gap:16px;align-items:flex-start;
-    background:var(--cream-dark);
-    padding:20px;border-radius:var(--radius);
-  }
-  .highlight-item .num{
-    flex:none;width:38px;height:38px;border-radius:50%;
-    background:var(--terracotta);color:var(--white);
-    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
-  }
-  .highlight-item h4{font-size:16px;margin-bottom:4px;}
-  .highlight-item p{font-size:14px;color:var(--brown-soft);}
+  /* HERO TEXT */
+  .hero-text{text-align:center;padding:90px 0 70px;}
+  .hero-text h1{font-size:38px;line-height:1.25;max-width:760px;margin:0 auto 18px;text-transform:uppercase;letter-spacing:1px;}
+  .hero-text p{max-width:520px;margin:0 auto 34px;color:var(--brown-soft);font-size:16px;}
 
-  /* LOCATION */
-  .location-wrap{display:grid;gap:40px;grid-template-columns:1fr;align-items:center;}
-  @media(min-width:820px){.location-wrap{grid-template-columns:1fr 1fr;}}
-  .location-text .eyebrow{margin-bottom:10px;display:block;}
-  .location-text h2{font-size:32px;margin-bottom:16px;}
-  .location-text p{color:var(--brown-soft);margin-bottom:14px;}
-  .nearby-list{list-style:none;margin-top:20px;display:grid;gap:10px;}
-  .nearby-list li{display:flex;gap:10px;font-size:14px;align-items:flex-start;}
-  .nearby-list li .dot{color:var(--terracotta);font-weight:700;}
-  .map-frame{
-    border-radius:var(--radius);
-    overflow:hidden;
-    box-shadow:var(--shadow);
-    border:0;
-    width:100%;
-    height:340px;
+  /* STRIP GALLERY */
+  .strip{display:flex;align-items:center;gap:14px;padding:0 24px 90px;max-width:1140px;margin:0 auto;}
+  .strip-arrow{
+    flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--brown);background:none;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--brown);
   }
+  .strip-arrow:hover{background:var(--brown);color:var(--white);}
+  .strip-track{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;flex:1;}
+  .strip-track img{width:260px;height:200px;object-fit:cover;border-radius:6px;flex:none;}
 
-  /* GALLERY */
-  .gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:16px;
-  }
-  @media(min-width:720px){
-    .gallery-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;}
-    .gallery-grid a:nth-child(1){grid-column:span 2;grid-row:span 2;}
-  }
-  .gallery-grid a{
-    display:block;border-radius:var(--radius);overflow:hidden;
-    position:relative;height:100%;
-  }
-  .gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease;}
-  .gallery-grid a:hover img{transform:scale(1.06);}
-  .gallery-cta{text-align:center;margin-top:36px;}
+  /* WELCOME / LOCATION split */
+  .split{display:grid;gap:0;grid-template-columns:1fr;align-items:stretch;}
+  @media(min-width:860px){.split{grid-template-columns:1fr 1fr;}}
+  .split img{width:100%;height:100%;object-fit:cover;min-height:340px;}
+  .split-text{display:flex;flex-direction:column;justify-content:center;padding:60px;text-align:center;}
+  .split-text h2{font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:10px 0 18px;}
+  .split-text p{color:var(--brown-soft);margin-bottom:14px;}
+  .split-text .btn{margin-top:14px;align-self:center;}
+  .split.no-pad section{padding:0;}
 
-  /* BOOKING */
-  .booking{background:var(--cream-dark);}
-  .booking-wrap{
-    display:grid;gap:40px;grid-template-columns:1fr;
-    background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
-    padding:40px;
-  }
-  @media(min-width:820px){.booking-wrap{grid-template-columns:1fr 1fr;padding:48px;}}
-  .booking-info h2{font-size:30px;margin-bottom:14px;}
-  .booking-info p{color:var(--brown-soft);margin-bottom:22px;}
-  .booking-options{display:flex;flex-direction:column;gap:14px;}
-  .booking-options .btn{width:100%;text-align:center;}
-  .btn-secondary{background:var(--cream-dark);color:var(--brown);}
-  .btn-secondary:hover{background:#e6d5bc;}
-  form{display:flex;flex-direction:column;gap:14px;}
-  form label{font-size:13px;font-weight:700;color:var(--brown-soft);margin-bottom:-8px;}
-  form input, form textarea{
-    padding:12px 14px;border-radius:8px;border:1px solid #ddccb8;
-    font-family:inherit;font-size:14px;background:var(--cream);
-  }
-  form textarea{resize:vertical;min-height:90px;}
-  form .btn{margin-top:6px;}
-  .form-note{font-size:12px;color:var(--brown-soft);text-align:center;}
-
-  /* HOST */
-  .host-wrap{
-    display:grid;gap:40px;grid-template-columns:1fr;align-items:center;
-  }
-  @media(min-width:760px){.host-wrap{grid-template-columns:220px 1fr;}}
-  .host-photo{
-    width:180px;height:180px;border-radius:50%;
-    background:linear-gradient(135deg,var(--terracotta),var(--gold));
-    display:flex;align-items:center;justify-content:center;
-    color:var(--white);font-family:'Lora',serif;font-size:52px;font-weight:700;
-    margin:0 auto;box-shadow:var(--shadow);
-  }
-  .host-text .eyebrow{display:block;margin-bottom:10px;}
-  .host-text h2{font-size:30px;margin-bottom:14px;}
-  .host-text p{color:var(--brown-soft);margin-bottom:12px;}
-  .host-points{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;}
-  .host-points span{
-    background:var(--cream-dark);padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;
-  }
-
-  /* FOOTER */
-  footer{background:var(--brown);color:#d9c9b8;padding:50px 0 24px;}
-  .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;margin-bottom:30px;}
-  .footer-logo{font-family:'Lora',serif;font-size:20px;color:var(--white);font-weight:700;}
-  .footer-logo span{color:var(--gold);}
-  .footer-contacts{display:flex;flex-wrap:wrap;gap:24px;}
-  .footer-contacts a{display:flex;align-items:center;gap:8px;text-decoration:none;color:#d9c9b8;font-size:14px;}
-  .footer-contacts a:hover{color:var(--gold);}
-  .footer-contacts svg{width:18px;height:18px;fill:currentColor;flex:none;}
-  .footer-bottom{
-    border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;margin-top:30px;
-    font-size:12px;text-align:center;color:#a6957f;
-  }
+  /* MARQUEE */
+  .marquee{background:var(--brown);color:var(--cream);overflow:hidden;padding:20px 0;white-space:nowrap;}
+  .marquee-track{display:inline-block;animation:marquee 28s linear infinite;font-family:'Playfair Display',serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;}
+  .marquee-track span{margin:0 22px;color:var(--gold);}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media(prefers-reduced-motion:reduce){.marquee-track{animation:none;}}
 
   /* ACTIVITIES */
-  .activity-block{max-width:720px;margin:0 auto 48px;text-align:center;}
-  .activity-block h3{font-size:22px;margin-bottom:12px;}
-  .activity-block p{color:var(--brown-soft);margin-bottom:12px;}
-  .bird-table-wrap{overflow-x:auto;max-width:800px;margin:0 auto 56px;}
+  .activity-block{max-width:720px;margin:0 auto 44px;text-align:center;}
+  .activity-block h3{font-size:21px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;}
+  .activity-block p{color:var(--brown-soft);margin-bottom:10px;}
+  .bird-table-wrap{overflow-x:auto;max-width:800px;margin:0 auto 20px;}
   .bird-table{width:100%;border-collapse:collapse;font-size:14px;color:var(--brown);}
   .bird-table th{background:var(--cream-dark);padding:8px 12px;text-align:left;font-family:'Lora',serif;font-weight:600;border-bottom:2px solid #ddccb8;}
   .bird-table th:last-child, .bird-table td:last-child{font-style:italic;}
   .bird-table td{padding:6px 12px;border-bottom:1px solid var(--cream-dark);}
   .bird-table tr:nth-child(even){background:#fbf6ef;}
+  details.bird-details{max-width:800px;margin:0 auto 56px;text-align:center;}
+  details.bird-details summary{cursor:pointer;font-weight:600;color:var(--terracotta);letter-spacing:.5px;text-transform:uppercase;font-size:13px;list-style:none;}
+  details.bird-details summary::-webkit-details-marker{display:none;}
+  details.bird-details[open] summary{margin-bottom:20px;}
 
-  /* BOOKING CALENDAR */
-  .cal-day{padding:8px 4px;border-radius:4px;cursor:pointer;font-size:14px;background:var(--cream-dark);color:var(--brown);transition:background .15s;}
-  .cal-day:hover{background:#e6d5bc;}
-  .cal-day.past{background:#efe7da;color:#b6a893;cursor:default;pointer-events:none;}
-  .cal-day.selected{background:var(--terracotta);color:var(--white);}
-  .cal-day.in-range{background:var(--gold);color:var(--white);}
-  .cal-day.empty{background:none;cursor:default;pointer-events:none;}
-  .cal-weekday{font-size:12px;color:var(--brown-soft);padding-bottom:6px;font-weight:600;}
+  /* FAQ */
+  .faq-wrap{display:grid;gap:50px;grid-template-columns:1fr;align-items:center;}
+  @media(min-width:860px){.faq-wrap{grid-template-columns:1fr 1fr;}}
+  .faq-wrap img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow);}
+  .faq-head h2{font-size:30px;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;}
+  details.faq-item{border-bottom:1px solid #ddccb8;padding:16px 0;}
+  details.faq-item summary{cursor:pointer;font-weight:600;color:var(--brown);list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  details.faq-item summary::-webkit-details-marker{display:none;}
+  details.faq-item summary::after{content:'+';font-size:20px;color:var(--terracotta);}
+  details.faq-item[open] summary::after{content:'–';}
+  details.faq-item p{margin-top:12px;color:var(--brown-soft);font-size:14px;}
+
+  /* PACKAGES */
+  .packages-grid{display:grid;gap:24px;grid-template-columns:1fr;margin-top:20px;}
+  @media(min-width:860px){.packages-grid{grid-template-columns:repeat(3,1fr);}}
+  .package-card{
+    border:1.5px dashed #c9b8a0;border-radius:var(--radius);padding:32px 24px;text-align:center;background:var(--white);
+  }
+  .package-card h3{font-size:17px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;color:var(--terracotta);}
+  .package-card p{color:var(--brown-soft);font-size:14px;font-style:italic;}
+
+  /* CTA BANNER */
+  .cta-banner{position:relative;padding:0;}
+  .cta-banner-img{width:100%;height:520px;object-fit:cover;display:block;}
+  .cta-card{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:48px 40px;max-width:460px;width:90%;text-align:center;
+  }
+  .cta-card h2{font-size:26px;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+  .cta-card p{color:var(--brown-soft);margin-bottom:22px;font-size:14px;}
+
+  /* CONTACT */
+  .contact-wrap{display:grid;gap:50px;grid-template-columns:1fr;}
+  @media(min-width:860px){.contact-wrap{grid-template-columns:1fr 1.2fr;}}
+  .contact-info{text-align:center;}
+  .contact-photo{width:110px;height:110px;border-radius:50%;object-fit:cover;margin:0 auto 20px;box-shadow:var(--shadow);}
+  .contact-info h3{font-size:20px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+  .contact-info p{color:var(--brown-soft);font-size:14px;}
+  .contact-form h2{font-size:28px;text-transform:uppercase;letter-spacing:1px;margin-bottom:22px;}
+  form{display:flex;flex-direction:column;gap:16px;}
+  .form-row{display:grid;gap:16px;grid-template-columns:1fr;}
+  @media(min-width:600px){.form-row{grid-template-columns:1fr 1fr;}}
+  form label{font-size:12px;font-weight:700;color:var(--brown-soft);text-transform:uppercase;letter-spacing:.5px;margin-bottom:-10px;}
+  form input, form textarea{
+    padding:12px 14px;border-radius:6px;border:1px solid #ddccb8;font-family:inherit;font-size:14px;background:var(--white);
+  }
+  form textarea{resize:vertical;min-height:100px;}
+  .form-note{font-size:12px;color:var(--brown-soft);}
+
+  /* FOOTER */
+  footer{background:var(--brown);color:#d9c9b8;padding:60px 0 26px;}
+  .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;margin-bottom:36px;}
+  .footer-logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--white);font-weight:700;letter-spacing:1px;}
+  .footer-links{display:flex;gap:22px;list-style:none;font-size:13px;flex-wrap:wrap;text-transform:uppercase;letter-spacing:.5px;}
+  .footer-links a{text-decoration:none;color:#d9c9b8;}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-contacts{display:flex;flex-wrap:wrap;gap:22px;}
+  .footer-contacts a{display:flex;align-items:center;gap:8px;text-decoration:none;color:#d9c9b8;font-size:14px;}
+  .footer-contacts a:hover{color:var(--gold);}
+  .footer-contacts svg{width:18px;height:18px;fill:currentColor;flex:none;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:12px;text-align:center;color:#a6957f;}
 </style>
 </head>
 <body>
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="logo">Paardekraal <span>Kliphuis</span></div>
-    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-menu" id="nav-menu">
-      <li><a href="#amenities">The Cottage</a></li>
+    <div class="logo">Paardekraal Kliphuis</div>
+    <ul class="nav-links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#welcome">About</a></li>
+      <li><a href="#amenities">Accommodation</a></li>
       <li><a href="#activities">Activities</a></li>
       <li><a href="#location">Location</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#host">Host</a></li>
-      <li class="nav-menu-cta"><a href="#booking">Check Availability</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+    <a href="book.html" class="btn btn-primary nav-book-btn" style="padding:10px 24px;font-size:12px;">Book Now</a>
+    <div class="nav-toggle-wrap" style="position:absolute;right:24px;top:20px;">
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#welcome">About</a></li>
+        <li><a href="#amenities">Accommodation</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="book.html">Book Now</a></li>
+      </ul>
+    </div>
   </div>
 </header>
 <script>
@@ -289,75 +227,111 @@
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     menu.addEventListener('click', function(e){
-      if (e.target.tagName === 'A') {
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
+      if (e.target.tagName === 'A') { menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
     });
   })();
 </script>
 
-<!-- 1. HERO -->
-<section class="hero" id="top">
-  <div class="container hero-content">
-    <span class="eyebrow">Between Springbok &amp; Kamieskroon · Northern Cape</span>
+<img id="top" class="hero-img" src="images/001.jpeg" alt="Sunset over the rocky ridge at Paardekraal Kliphuis">
+
+<!-- HERO TEXT -->
+<section class="hero-text">
+  <div class="container">
     <h1>A Destination Worth the Journey</h1>
-    <p>Namaqualand is regarded as a biodiversity hotspot, boasting the richest succulent flora on earth. Paardekraal Kliphuis puts you right in the heart of this remarkable landscape — a self-catering stone cottage on a working farm.</p>
-    <div class="hero-buttons">
-      <a href="#booking" class="btn btn-primary">Check Availability</a>
-      <a href="#gallery" class="btn btn-outline">View Gallery</a>
-    </div>
+    <p>Namaqualand is regarded as a biodiversity hotspot, boasting the richest succulent flora on earth. Paardekraal Kliphuis puts you right in the heart of this remarkable landscape.</p>
+    <a href="book.html" class="btn btn-primary">Book Now</a>
   </div>
-  <div class="scroll-cue">Scroll to explore ↓</div>
 </section>
 
-<!-- 2. PROPERTY HIGHLIGHTS & AMENITIES -->
+<!-- GALLERY STRIP -->
+<div class="strip">
+  <button class="strip-arrow" id="strip-prev" aria-label="Scroll left">&#8249;</button>
+  <div class="strip-track" id="strip-track">
+    <img src="images/003.jpeg" alt="Wildflower valley with mountains">
+    <img src="images/004.jpeg" alt="Gold wildflower meadow">
+    <img src="images/006.jpeg" alt="Goats resting on the property">
+    <img src="images/002.jpeg" alt="Storm clouds over the veld">
+    <img src="images/005.jpeg" alt="Baby goat on the farm">
+  </div>
+  <button class="strip-arrow" id="strip-next" aria-label="Scroll right">&#8250;</button>
+</div>
+<script>
+  (function(){
+    var track = document.getElementById('strip-track');
+    document.getElementById('strip-prev').addEventListener('click', function(){ track.scrollBy({left:-280, behavior:'smooth'}); });
+    document.getElementById('strip-next').addEventListener('click', function(){ track.scrollBy({left:280, behavior:'smooth'}); });
+  })();
+</script>
+
+<!-- WELCOME -->
+<section id="welcome" style="padding:0;">
+  <div class="split">
+    <img src="images/001.jpeg" alt="Sunset over the rocky ridge at Paardekraal Kliphuis">
+    <div class="split-text">
+      <span class="eyebrow">Welcome To</span>
+      <h2>Paardekraal Kliphuis</h2>
+      <p>Namaqualand is regarded as a biodiversity hotspot boasting the richest succulent flora on earth. Paardekraal Kliphuis puts you right in the heart of this remarkable landscape.</p>
+      <p>The self-catering stone cottage is nestled on a working farm between Springbok and Kamieskroon, where the rhythm is slow and it is easy to breathe. There are no crowds, no infrastructure to lean on and no shortcuts.</p>
+      <p>The land asks something of you and in return it gives you silence, strangeness and beauty of a kind that stays with you long after you left.</p>
+      <a href="#amenities" class="btn btn-outline">Accommodation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOMMODATION / AMENITIES -->
 <section id="amenities">
   <div class="container">
-    <div class="section-head">
+    <div style="text-align:center;max-width:680px;margin:0 auto 40px;">
       <span class="eyebrow">The Cottage</span>
-      <h2>Everything You Need, Nothing You Don't</h2>
-      <p>The cottage sits low against the land, at the foot of a mountain. Built from the same rough granite that litters the surrounding hillside, sun-bleached and mortared by hands that knew this landscape intimately.</p>
+      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:14px 0;">Everything You Need, Nothing You Don't</h2>
+      <p style="color:var(--brown-soft);">The cottage sits low against the land, at the foot of a mountain. Built from the same rough granite that litters the surrounding hillside, sun-bleached and mortared by hands that knew this landscape intimately.</p>
     </div>
-    <div style="max-width:720px;margin:0 auto 48px;color:var(--brown-soft);display:grid;gap:16px;">
+    <div style="max-width:720px;margin:0 auto;color:var(--brown-soft);display:grid;gap:16px;text-align:center;">
       <p>The veranda faces North-East to catch the winter sun, with a braai area to the one side and a simple wooden bench where you can watch the extraordinary light change over the plains.</p>
       <p>When you step inside, the thick walls announce themselves — keeping you cool in summer and holding warmth on cold winter nights. The fully equipped kitchen occupies one corner, with a built-in fireplace for cooking or keeping warm, leading through to the comfortable couch in the lounge and glass doors that open onto the landscape.</p>
       <p>The bedroom with an en-suite bathroom is unpretentious but deeply comfortable, with a woodstove and a view of the rising sun.</p>
     </div>
-    <div class="amenities-grid">
-      <div class="amenity-card"><div class="icon">🔥</div><h4>Fireplace &amp; Woodstove</h4><p>Built-in fireplace for cooking or keeping warm</p></div>
-      <div class="amenity-card"><div class="icon">🍳</div><h4>Fully Equipped Kitchen</h4><p>Everything you need to self-cater</p></div>
-      <div class="amenity-card"><div class="icon">🛁</div><h4>En-Suite Bathroom</h4><p>Unpretentious but deeply comfortable</p></div>
-      <div class="amenity-card"><div class="icon">🌄</div><h4>Private Veranda</h4><p>North-East facing, with a braai area</p></div>
-    </div>
-    <div class="highlights">
-      <div class="highlight-item">
-        <div class="num">1</div>
-        <div><h4>Namaqualand Biodiversity Hotspot</h4><p>The richest succulent flora on earth, right outside the door.</p></div>
-      </div>
-      <div class="highlight-item">
-        <div class="num">2</div>
-        <div><h4>Spring Wildflower Bloom</h4><p>Between late July and September, the plains erupt into carpets of orange, yellow, purple and white.</p></div>
-      </div>
-      <div class="highlight-item">
-        <div class="num">3</div>
-        <div><h4>Birdwatching, Hiking &amp; Cycling</h4><p>Rolling plains, granite kopjes and quiet gravel roads for those who slow down.</p></div>
-      </div>
-      <div class="highlight-item">
-        <div class="num">4</div>
-        <div><h4>Silence &amp; Solitude</h4><p>No crowds, no infrastructure to lean on, no shortcuts — just the land.</p></div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- 3. ACTIVITIES -->
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    A Destination Worth The Journey <span>✦</span>
+    A Destination Worth The Journey <span>✦</span>
+    A Destination Worth The Journey <span>✦</span>
+    A Destination Worth The Journey <span>✦</span>
+    A Destination Worth The Journey <span>✦</span>
+    A Destination Worth The Journey <span>✦</span>
+  </div>
+</div>
+
+<!-- LOCATION -->
+<section id="location" style="padding:0;">
+  <div class="split">
+    <div class="split-text">
+      <span class="eyebrow">Location Overview</span>
+      <h2>Namaqualand, Northern Cape</h2>
+      <p>Paardekraal Kliphuis sits on the R539 Droëdap road, on a working farm between Springbok and Kamieskroon. The rhythm here is slow, and it is easy to breathe.</p>
+      <p>The road in requires reasonable ground clearance — please check with us before you travel if you are unsure about your vehicle.</p>
+      <p>Close to Namaqua National Park and the Skilpad Wildflower Reserve.</p>
+      <a href="https://www.google.com/maps?q=-29.950387,17.961001" target="_blank" rel="noopener" class="btn btn-outline">Explore Location</a>
+    </div>
+    <img src="images/002.jpeg" alt="Storm clouds over the veld">
+  </div>
+  <div class="container" style="padding-top:50px;">
+    <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%;height:340px;border:0;border-radius:var(--radius);box-shadow:var(--shadow);"
+      src="https://www.google.com/maps?q=-29.950387,17.961001&output=embed"></iframe>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
 <section id="activities" style="background:var(--cream-dark);">
   <div class="container">
-    <div class="section-head">
+    <div style="text-align:center;max-width:680px;margin:0 auto 50px;">
       <span class="eyebrow">Things To Do</span>
-      <h2>Slow Down, and Look Closer</h2>
-      <p>Namaqualand rewards the traveler who slows down and learns to read a landscape that hides its riches in plain sight.</p>
+      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:14px 0;">Slow Down, and Look Closer</h2>
+      <p style="color:var(--brown-soft);">Namaqualand rewards the traveler who slows down and learns to read a landscape that hides its riches in plain sight.</p>
     </div>
 
     <div class="activity-block">
@@ -366,281 +340,228 @@
       <p>Namaqualand however is not a place of easy ticks and dense flocks. It rewards the traveler who slows down, tunes their ear to the silence and learns to read a landscape that hides its riches in plain sight.</p>
     </div>
 
-    <div class="bird-table-wrap">
-      <table class="bird-table">
-        <thead>
-          <tr><th>#</th><th>English</th><th>Afrikaans</th><th>Scientific</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>Batis, Pririt</td><td>Bosbontrokkie</td><td>Batis pririt</td></tr>
-          <tr><td>2</td><td>Barbet, Acacia Pied</td><td>Bonthoutkapper</td><td>Tricholaema leucomelas</td></tr>
-          <tr><td>3</td><td>Bokmakierie</td><td>Bokmakierie</td><td>Telophorus zeylonus</td></tr>
-          <tr><td>4</td><td>Bulbul, Cape</td><td>Kaapse tiptol</td><td>Pycnonotus capensis</td></tr>
-          <tr><td>5</td><td>Bulbul, African Red-eyed</td><td>Rooioogtiptol</td><td>Pycnonotus nigricans</td></tr>
-          <tr><td>6</td><td>Bunting, Cape</td><td>Rooivlerkstreepkoppie</td><td>Emberiza capensis</td></tr>
-          <tr><td>7</td><td>Bunting, Lark-like</td><td>Vaalstreepkoppie</td><td>Emberiza impetuani</td></tr>
-          <tr><td>8</td><td>Bustard, Ludwig</td><td>Ludwigpou</td><td>Neotis ludwigii</td></tr>
-          <tr><td>9</td><td>Buzzard, Jackal</td><td>Rooiborsjakkalsvoël</td><td>Buteo rufofuscus</td></tr>
-          <tr><td>10</td><td>Canary, Black-headed</td><td>Swartkopkanarie</td><td>Serinus alario</td></tr>
-          <tr><td>11</td><td>Canary, Black-throated</td><td>Bergkanarie</td><td>Crithagra atrogularis</td></tr>
-          <tr><td>12</td><td>Canary, White-throated</td><td>Witkeelkanarie</td><td>Crithagra albogularis</td></tr>
-          <tr><td>13</td><td>Canary, Yellow</td><td>Geelkanarie</td><td>Crithagra flaviventris</td></tr>
-          <tr><td>14</td><td>Chat, Ant-eating</td><td>Swartpiek</td><td>Myrmecocichla formicivora</td></tr>
-          <tr><td>15</td><td>Chat, Familiar</td><td>Gewone spekvreter</td><td>Cercomela familiaris</td></tr>
-          <tr><td>16</td><td>Chat, Karoo</td><td>Karoospekvreter</td><td>Cercomela sinuata</td></tr>
-          <tr><td>17</td><td>Chat, Tractrac</td><td>Woestynspekvreter</td><td>Cercomela tractrac</td></tr>
-          <tr><td>18</td><td>Cisticola, Grey-backed</td><td>Grysrug tinktinkie</td><td>Cisticola subruficapilla</td></tr>
-          <tr><td>19</td><td>Courser, Double-banded</td><td>Dubbelbanddrawwertjie</td><td>Rhinoptilus africanus</td></tr>
-          <tr><td>20</td><td>Crombec, Long-billed</td><td>Bosveldstompstert</td><td>Sylvietta rufescens</td></tr>
-          <tr><td>21</td><td>Crow, Cape</td><td>Swartkraai</td><td>Corvus capensis</td></tr>
-          <tr><td>22</td><td>Crow, Pied</td><td>Witborskraai</td><td>Corvus albus</td></tr>
-          <tr><td>23</td><td>Dove, Laughing</td><td>Rooiborsduifie</td><td>Streptopelia senegalensis</td></tr>
-          <tr><td>24</td><td>Dove, Namaqua</td><td>Namakwaduifie</td><td>Oena capensis</td></tr>
-          <tr><td>25</td><td>Dove, Ring-necked</td><td>Gewone tortelduif</td><td>Streptopelia capicola</td></tr>
-          <tr><td>26</td><td>Eagle, Booted</td><td>Dwergarend</td><td>Aquila pennatus</td></tr>
-          <tr><td>27</td><td>Eagle, Martial</td><td>Breëkoparend</td><td>Polemaetus bellicosus</td></tr>
-          <tr><td>28</td><td>Eagle, Verreaux's</td><td>Witkruisarend</td><td>Aquila verreauxii</td></tr>
-          <tr><td>29</td><td>Egret, Western Cattle</td><td>Veereier</td><td>Bubulcus ibis</td></tr>
-          <tr><td>30</td><td>Eremomela, Karoo</td><td>Groenbossanger</td><td>Eremomela gregalis</td></tr>
-          <tr><td>31</td><td>Eremomela, Yellow-bellied</td><td>Geelpensbossanger</td><td>Eremomela icteropygialis</td></tr>
-          <tr><td>32</td><td>Fiscal, Southern</td><td>Janfiskaal</td><td>Lanius collaris</td></tr>
-          <tr><td>33</td><td>Finch, Red-headed</td><td>Rooikopvink</td><td>Amadina erythrocephala</td></tr>
-          <tr><td>34</td><td>Finch, Scaly-feathered</td><td>Baardmannetjie</td><td>Sporopipes squamifrons</td></tr>
-          <tr><td>35</td><td>Flycatcher, Chat</td><td>Grootvlieëvanger</td><td>Bradornis infuscatus</td></tr>
-          <tr><td>36</td><td>Flycatcher, Fairy</td><td>Feevlieëvanger</td><td>Stenostira scita</td></tr>
-          <tr><td>37</td><td>Goshawk, Pale Chanting</td><td>Bleeksingvalk</td><td>Melierax canorus</td></tr>
-          <tr><td>38</td><td>Harrier, Black</td><td>Witkruisvleivalk</td><td>Circus maurus</td></tr>
-          <tr><td>39</td><td>Kestrel, Greater</td><td>Grootrooivalk</td><td>Falco rupicoloides</td></tr>
-          <tr><td>40</td><td>Kestrel, Rock</td><td>Kransvalk</td><td>Falco rupicolus</td></tr>
-          <tr><td>41</td><td>Kite, Black-winged</td><td>Blouvalk</td><td>Elanus caeruleus</td></tr>
-          <tr><td>42</td><td>Korhaan, Karoo</td><td>Vaalkorhaan</td><td>Eupodotis vigorsii</td></tr>
-          <tr><td>43</td><td>Korhaan, Northern Black</td><td>Witvlerkkorhaan</td><td>Afrotis afraoides</td></tr>
-          <tr><td>44</td><td>Korhaan, Southern Black</td><td>Swartvlerkkorhaan</td><td>Afrotis afra</td></tr>
-          <tr><td>45</td><td>Lapwing, Crowned</td><td>Kroonkiewiet</td><td>Vanellus coronatus</td></tr>
-          <tr><td>46</td><td>Lark, Cape Clapper</td><td>Kaapse Klappertjie</td><td>Mirafra apiata</td></tr>
-          <tr><td>47</td><td>Lark, Cape Long-billed</td><td>Langbeklewerik</td><td>Certhilauda curvirostris</td></tr>
-          <tr><td>48</td><td>Lark, Karoo</td><td>Karoolewerik</td><td>Calendulauda albescens</td></tr>
-          <tr><td>49</td><td>Lark, Large-billed</td><td>Dikbeklewerik</td><td>Galerida magnirostris</td></tr>
-          <tr><td>50</td><td>Lark, Red</td><td>Rooilewerik</td><td>Calendulauda burra</td></tr>
-          <tr><td>51</td><td>Lark, Spike-heeled</td><td>Vlaktelewerik</td><td>Chersomanes albofasciata</td></tr>
-          <tr><td>52</td><td>Lark, Stark's</td><td>Woestynlewerik</td><td>Spizocorys starki</td></tr>
-          <tr><td>53</td><td>Martin, Rock</td><td>Kransswael</td><td>Ptyonoprogne fuligula</td></tr>
-          <tr><td>54</td><td>Mousebird, White-backed</td><td>Witrug muisvoël</td><td>Colius colius</td></tr>
-          <tr><td>55</td><td>Mousebird, Red-faced</td><td>Rooiwang muisvoël</td><td>Urocolius indicus</td></tr>
-          <tr><td>56</td><td>Owl, Spotted Eagle</td><td>Gevlekte ooruil</td><td>Bubo africanus</td></tr>
-          <tr><td>57</td><td>Pigeon, Speckled</td><td>Kransduif</td><td>Columba guinea</td></tr>
-          <tr><td>58</td><td>Pipit, African</td><td>Koester</td><td>Anthus cinnamomeus</td></tr>
-          <tr><td>59</td><td>Prinia, Black-chested</td><td>Swartbandlangstertjie</td><td>Prinia flavicans</td></tr>
-          <tr><td>60</td><td>Prinia, Karoo</td><td>Karoolangstertjie</td><td>Prinia maculosa</td></tr>
-          <tr><td>61</td><td>Quail, Common</td><td>Afrikaanse Kwartel</td><td>Coturnix coturnix</td></tr>
-          <tr><td>62</td><td>Raven, White-necked</td><td>Withalskraai</td><td>Corvus albicollis</td></tr>
-          <tr><td>63</td><td>Robin, Karoo Scrub</td><td>Slangverklikker</td><td>Erythropygia coryphaeus</td></tr>
-          <tr><td>64</td><td>Sandgrouse, Namaqua</td><td>Kelkiewyn</td><td>Pterocles namaqua</td></tr>
-          <tr><td>65</td><td>Snake Eagle, Black-chested</td><td>Swartborsslangarend</td><td>Circaetus pectoralis</td></tr>
-          <tr><td>66</td><td>Sparrow, Cape</td><td>Gewone mossie</td><td>Passer melanurus</td></tr>
-          <tr><td>67</td><td>Sparrow, House</td><td>Huismossie</td><td>Passer diffusus</td></tr>
-          <tr><td>68</td><td>Sparrow-lark, Black-eared</td><td>Swartoorlewerik</td><td>Eremopterix australis</td></tr>
-          <tr><td>69</td><td>Sparrow-lark, Grey-backed</td><td>Grysruglewerik</td><td>Eremopterix verticalis</td></tr>
-          <tr><td>70</td><td>Starling, Pale-winged</td><td>Bleekvlerkspreeu</td><td>Onychognathus nabouroup</td></tr>
-          <tr><td>71</td><td>Starling, Pied</td><td>Witgatspreeu</td><td>Lamprotornis bicolor</td></tr>
-          <tr><td>72</td><td>Starling, Wattled</td><td>Lelspreeu</td><td>Creatophora cinerea</td></tr>
-          <tr><td>73</td><td>Sunbird, Dusky</td><td>Namakwasuikerbekkie</td><td>Cinnyris fuscus</td></tr>
-          <tr><td>74</td><td>Sunbird, Malachite</td><td>Jangroentjie</td><td>Nectarinia famosa</td></tr>
-          <tr><td>75</td><td>Sunbird, Southern Double-coloured</td><td>Klein-rooibandsuikerbekkie</td><td>Cinnyris chalybeus</td></tr>
-          <tr><td>76</td><td>Swift, Alpine</td><td>Witpens windswael</td><td>Tachymarptis aequatorialis</td></tr>
-          <tr><td>77</td><td>Swift, Common</td><td>Europese Windswael</td><td>Apus apus</td></tr>
-          <tr><td>78</td><td>Swift, Little</td><td>Kleinwindswael</td><td>Apus affinis</td></tr>
-          <tr><td>79</td><td>Thick-knee, Spotted</td><td>Gewone Dikkop</td><td>Burhinus capensis</td></tr>
-          <tr><td>80</td><td>Tit, Grey</td><td>Piet-tjou-tjou-grysmees</td><td>Parus afer</td></tr>
-          <tr><td>81</td><td>Tit, Cape Penduline</td><td>Kaapse Kapokvoël</td><td>Anthoscopus minutus</td></tr>
-          <tr><td>82</td><td>Warbler, Chestnut-vented</td><td>Bosveld Cheriktik</td><td>Sylvia subcaeruleum</td></tr>
-          <tr><td>83</td><td>Warbler, Cinnamon-breasted</td><td>Kaneelborssanger</td><td>Euryptila subcinnamomea</td></tr>
-          <tr><td>84</td><td>Warbler, Rufous-eared</td><td>Rooioorlangstertjie</td><td>Malcorus pectoralis</td></tr>
-          <tr><td>85</td><td>Warbler, Namaqua</td><td>Namakwalangstertjie</td><td>Phragmacia substriata</td></tr>
-          <tr><td>86</td><td>Wheatear, Capped</td><td>Hoëveldskaapwagter</td><td>Oenanthe pileata</td></tr>
-          <tr><td>87</td><td>Wheatear, Mountain</td><td>Bergwagter</td><td>Oenanthe monticola</td></tr>
-          <tr><td>88</td><td>Woodpecker, Ground</td><td>Grondspeg</td><td>Geocolaptes olivaceus</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <details class="bird-details">
+      <summary>View the full 88-species bird list</summary>
+      <div class="bird-table-wrap">
+        <table class="bird-table">
+          <thead><tr><th>#</th><th>English</th><th>Afrikaans</th><th>Scientific</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Batis, Pririt</td><td>Bosbontrokkie</td><td>Batis pririt</td></tr>
+            <tr><td>2</td><td>Barbet, Acacia Pied</td><td>Bonthoutkapper</td><td>Tricholaema leucomelas</td></tr>
+            <tr><td>3</td><td>Bokmakierie</td><td>Bokmakierie</td><td>Telophorus zeylonus</td></tr>
+            <tr><td>4</td><td>Bulbul, Cape</td><td>Kaapse tiptol</td><td>Pycnonotus capensis</td></tr>
+            <tr><td>5</td><td>Bulbul, African Red-eyed</td><td>Rooioogtiptol</td><td>Pycnonotus nigricans</td></tr>
+            <tr><td>6</td><td>Bunting, Cape</td><td>Rooivlerkstreepkoppie</td><td>Emberiza capensis</td></tr>
+            <tr><td>7</td><td>Bunting, Lark-like</td><td>Vaalstreepkoppie</td><td>Emberiza impetuani</td></tr>
+            <tr><td>8</td><td>Bustard, Ludwig</td><td>Ludwigpou</td><td>Neotis ludwigii</td></tr>
+            <tr><td>9</td><td>Buzzard, Jackal</td><td>Rooiborsjakkalsvoël</td><td>Buteo rufofuscus</td></tr>
+            <tr><td>10</td><td>Canary, Black-headed</td><td>Swartkopkanarie</td><td>Serinus alario</td></tr>
+            <tr><td>11</td><td>Canary, Black-throated</td><td>Bergkanarie</td><td>Crithagra atrogularis</td></tr>
+            <tr><td>12</td><td>Canary, White-throated</td><td>Witkeelkanarie</td><td>Crithagra albogularis</td></tr>
+            <tr><td>13</td><td>Canary, Yellow</td><td>Geelkanarie</td><td>Crithagra flaviventris</td></tr>
+            <tr><td>14</td><td>Chat, Ant-eating</td><td>Swartpiek</td><td>Myrmecocichla formicivora</td></tr>
+            <tr><td>15</td><td>Chat, Familiar</td><td>Gewone spekvreter</td><td>Cercomela familiaris</td></tr>
+            <tr><td>16</td><td>Chat, Karoo</td><td>Karoospekvreter</td><td>Cercomela sinuata</td></tr>
+            <tr><td>17</td><td>Chat, Tractrac</td><td>Woestynspekvreter</td><td>Cercomela tractrac</td></tr>
+            <tr><td>18</td><td>Cisticola, Grey-backed</td><td>Grysrug tinktinkie</td><td>Cisticola subruficapilla</td></tr>
+            <tr><td>19</td><td>Courser, Double-banded</td><td>Dubbelbanddrawwertjie</td><td>Rhinoptilus africanus</td></tr>
+            <tr><td>20</td><td>Crombec, Long-billed</td><td>Bosveldstompstert</td><td>Sylvietta rufescens</td></tr>
+            <tr><td>21</td><td>Crow, Cape</td><td>Swartkraai</td><td>Corvus capensis</td></tr>
+            <tr><td>22</td><td>Crow, Pied</td><td>Witborskraai</td><td>Corvus albus</td></tr>
+            <tr><td>23</td><td>Dove, Laughing</td><td>Rooiborsduifie</td><td>Streptopelia senegalensis</td></tr>
+            <tr><td>24</td><td>Dove, Namaqua</td><td>Namakwaduifie</td><td>Oena capensis</td></tr>
+            <tr><td>25</td><td>Dove, Ring-necked</td><td>Gewone tortelduif</td><td>Streptopelia capicola</td></tr>
+            <tr><td>26</td><td>Eagle, Booted</td><td>Dwergarend</td><td>Aquila pennatus</td></tr>
+            <tr><td>27</td><td>Eagle, Martial</td><td>Breëkoparend</td><td>Polemaetus bellicosus</td></tr>
+            <tr><td>28</td><td>Eagle, Verreaux's</td><td>Witkruisarend</td><td>Aquila verreauxii</td></tr>
+            <tr><td>29</td><td>Egret, Western Cattle</td><td>Veereier</td><td>Bubulcus ibis</td></tr>
+            <tr><td>30</td><td>Eremomela, Karoo</td><td>Groenbossanger</td><td>Eremomela gregalis</td></tr>
+            <tr><td>31</td><td>Eremomela, Yellow-bellied</td><td>Geelpensbossanger</td><td>Eremomela icteropygialis</td></tr>
+            <tr><td>32</td><td>Fiscal, Southern</td><td>Janfiskaal</td><td>Lanius collaris</td></tr>
+            <tr><td>33</td><td>Finch, Red-headed</td><td>Rooikopvink</td><td>Amadina erythrocephala</td></tr>
+            <tr><td>34</td><td>Finch, Scaly-feathered</td><td>Baardmannetjie</td><td>Sporopipes squamifrons</td></tr>
+            <tr><td>35</td><td>Flycatcher, Chat</td><td>Grootvlieëvanger</td><td>Bradornis infuscatus</td></tr>
+            <tr><td>36</td><td>Flycatcher, Fairy</td><td>Feevlieëvanger</td><td>Stenostira scita</td></tr>
+            <tr><td>37</td><td>Goshawk, Pale Chanting</td><td>Bleeksingvalk</td><td>Melierax canorus</td></tr>
+            <tr><td>38</td><td>Harrier, Black</td><td>Witkruisvleivalk</td><td>Circus maurus</td></tr>
+            <tr><td>39</td><td>Kestrel, Greater</td><td>Grootrooivalk</td><td>Falco rupicoloides</td></tr>
+            <tr><td>40</td><td>Kestrel, Rock</td><td>Kransvalk</td><td>Falco rupicolus</td></tr>
+            <tr><td>41</td><td>Kite, Black-winged</td><td>Blouvalk</td><td>Elanus caeruleus</td></tr>
+            <tr><td>42</td><td>Korhaan, Karoo</td><td>Vaalkorhaan</td><td>Eupodotis vigorsii</td></tr>
+            <tr><td>43</td><td>Korhaan, Northern Black</td><td>Witvlerkkorhaan</td><td>Afrotis afraoides</td></tr>
+            <tr><td>44</td><td>Korhaan, Southern Black</td><td>Swartvlerkkorhaan</td><td>Afrotis afra</td></tr>
+            <tr><td>45</td><td>Lapwing, Crowned</td><td>Kroonkiewiet</td><td>Vanellus coronatus</td></tr>
+            <tr><td>46</td><td>Lark, Cape Clapper</td><td>Kaapse Klappertjie</td><td>Mirafra apiata</td></tr>
+            <tr><td>47</td><td>Lark, Cape Long-billed</td><td>Langbeklewerik</td><td>Certhilauda curvirostris</td></tr>
+            <tr><td>48</td><td>Lark, Karoo</td><td>Karoolewerik</td><td>Calendulauda albescens</td></tr>
+            <tr><td>49</td><td>Lark, Large-billed</td><td>Dikbeklewerik</td><td>Galerida magnirostris</td></tr>
+            <tr><td>50</td><td>Lark, Red</td><td>Rooilewerik</td><td>Calendulauda burra</td></tr>
+            <tr><td>51</td><td>Lark, Spike-heeled</td><td>Vlaktelewerik</td><td>Chersomanes albofasciata</td></tr>
+            <tr><td>52</td><td>Lark, Stark's</td><td>Woestynlewerik</td><td>Spizocorys starki</td></tr>
+            <tr><td>53</td><td>Martin, Rock</td><td>Kransswael</td><td>Ptyonoprogne fuligula</td></tr>
+            <tr><td>54</td><td>Mousebird, White-backed</td><td>Witrug muisvoël</td><td>Colius colius</td></tr>
+            <tr><td>55</td><td>Mousebird, Red-faced</td><td>Rooiwang muisvoël</td><td>Urocolius indicus</td></tr>
+            <tr><td>56</td><td>Owl, Spotted Eagle</td><td>Gevlekte ooruil</td><td>Bubo africanus</td></tr>
+            <tr><td>57</td><td>Pigeon, Speckled</td><td>Kransduif</td><td>Columba guinea</td></tr>
+            <tr><td>58</td><td>Pipit, African</td><td>Koester</td><td>Anthus cinnamomeus</td></tr>
+            <tr><td>59</td><td>Prinia, Black-chested</td><td>Swartbandlangstertjie</td><td>Prinia flavicans</td></tr>
+            <tr><td>60</td><td>Prinia, Karoo</td><td>Karoolangstertjie</td><td>Prinia maculosa</td></tr>
+            <tr><td>61</td><td>Quail, Common</td><td>Afrikaanse Kwartel</td><td>Coturnix coturnix</td></tr>
+            <tr><td>62</td><td>Raven, White-necked</td><td>Withalskraai</td><td>Corvus albicollis</td></tr>
+            <tr><td>63</td><td>Robin, Karoo Scrub</td><td>Slangverklikker</td><td>Erythropygia coryphaeus</td></tr>
+            <tr><td>64</td><td>Sandgrouse, Namaqua</td><td>Kelkiewyn</td><td>Pterocles namaqua</td></tr>
+            <tr><td>65</td><td>Snake Eagle, Black-chested</td><td>Swartborsslangarend</td><td>Circaetus pectoralis</td></tr>
+            <tr><td>66</td><td>Sparrow, Cape</td><td>Gewone mossie</td><td>Passer melanurus</td></tr>
+            <tr><td>67</td><td>Sparrow, House</td><td>Huismossie</td><td>Passer diffusus</td></tr>
+            <tr><td>68</td><td>Sparrow-lark, Black-eared</td><td>Swartoorlewerik</td><td>Eremopterix australis</td></tr>
+            <tr><td>69</td><td>Sparrow-lark, Grey-backed</td><td>Grysruglewerik</td><td>Eremopterix verticalis</td></tr>
+            <tr><td>70</td><td>Starling, Pale-winged</td><td>Bleekvlerkspreeu</td><td>Onychognathus nabouroup</td></tr>
+            <tr><td>71</td><td>Starling, Pied</td><td>Witgatspreeu</td><td>Lamprotornis bicolor</td></tr>
+            <tr><td>72</td><td>Starling, Wattled</td><td>Lelspreeu</td><td>Creatophora cinerea</td></tr>
+            <tr><td>73</td><td>Sunbird, Dusky</td><td>Namakwasuikerbekkie</td><td>Cinnyris fuscus</td></tr>
+            <tr><td>74</td><td>Sunbird, Malachite</td><td>Jangroentjie</td><td>Nectarinia famosa</td></tr>
+            <tr><td>75</td><td>Sunbird, Southern Double-coloured</td><td>Klein-rooibandsuikerbekkie</td><td>Cinnyris chalybeus</td></tr>
+            <tr><td>76</td><td>Swift, Alpine</td><td>Witpens windswael</td><td>Tachymarptis aequatorialis</td></tr>
+            <tr><td>77</td><td>Swift, Common</td><td>Europese Windswael</td><td>Apus apus</td></tr>
+            <tr><td>78</td><td>Swift, Little</td><td>Kleinwindswael</td><td>Apus affinis</td></tr>
+            <tr><td>79</td><td>Thick-knee, Spotted</td><td>Gewone Dikkop</td><td>Burhinus capensis</td></tr>
+            <tr><td>80</td><td>Tit, Grey</td><td>Piet-tjou-tjou-grysmees</td><td>Parus afer</td></tr>
+            <tr><td>81</td><td>Tit, Cape Penduline</td><td>Kaapse Kapokvoël</td><td>Anthoscopus minutus</td></tr>
+            <tr><td>82</td><td>Warbler, Chestnut-vented</td><td>Bosveld Cheriktik</td><td>Sylvia subcaeruleum</td></tr>
+            <tr><td>83</td><td>Warbler, Cinnamon-breasted</td><td>Kaneelborssanger</td><td>Euryptila subcinnamomea</td></tr>
+            <tr><td>84</td><td>Warbler, Rufous-eared</td><td>Rooioorlangstertjie</td><td>Malcorus pectoralis</td></tr>
+            <tr><td>85</td><td>Warbler, Namaqua</td><td>Namakwalangstertjie</td><td>Phragmacia substriata</td></tr>
+            <tr><td>86</td><td>Wheatear, Capped</td><td>Hoëveldskaapwagter</td><td>Oenanthe pileata</td></tr>
+            <tr><td>87</td><td>Wheatear, Mountain</td><td>Bergwagter</td><td>Oenanthe monticola</td></tr>
+            <tr><td>88</td><td>Woodpecker, Ground</td><td>Grondspeg</td><td>Geocolaptes olivaceus</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
 
     <div class="activity-block">
       <h3>Photography</h3>
-      <p>Paardekraal has a landscape of rolling plains, granite kopjes (rocky outcrops) and dry riverbeds under an enormous sky. For most of the year it is a study in ochres, greys and dusty greens — thorny shrubs, succulents and sun-bleached rock.</p>
-      <p>The light here is extraordinary: low-angled in the morning and evening, and intensely directional. But Namaqualand's most famous trick is its spring transformation. Between late July and September it erupts into a spectacular wildflower display — carpets of orange, yellow, purple and white.</p>
+      <p>Paardekraal has a landscape of rolling plains, granite kopjes and dry riverbeds under an enormous sky. The light here is extraordinary — low-angled in the morning and evening, and intensely directional.</p>
+      <p>Namaqualand's most famous trick is its spring transformation. Between late July and September it erupts into a spectacular wildflower display — carpets of orange, yellow, purple and white.</p>
     </div>
 
     <div class="activity-block">
-      <h3>Cycling</h3>
-      <p>The road network is any gravel cyclist's quiet dream. The gradients on the plains are gentle and generally rideable on a gravel bike or mountain bike.</p>
-      <p>The scenery shifts slowly as you move through it. Cycling gives you something driving never can: the smell of the shrubs, the sound of wind and larks, and the full physical experience of the scale of the landscape.</p>
-    </div>
-
-    <div class="activity-block">
-      <h3>Hiking</h3>
-      <p>The hiking landscape consists of open plains, seemingly featureless from a distance but alive underfoot with quartz pebbles, dwarf succulents, lizard tracks and plants that have learned to survive on almost nothing.</p>
-      <p>Rounded, boulder-strewn rocky outcrops punctuate the plains — cool shade, surprising plant life clinging to the cracks, and panoramic views from the top across a landscape that seems to go on forever.</p>
+      <h3>Cycling &amp; Hiking</h3>
+      <p>The road network is any gravel cyclist's quiet dream, with gentle gradients rideable on a gravel bike or mountain bike. On foot, the plains are seemingly featureless from a distance but alive underfoot with quartz pebbles, dwarf succulents and lizard tracks.</p>
     </div>
 
     <div class="activity-block" style="margin-bottom:0;">
       <h3>Breakfast on the Plains</h3>
       <p>There is no agenda. The nearest town is an hour away. Your phone has no signal. The bread is freshly baked, the coffee is hot, and the world in front of you is ancient, enormous and unhurried.</p>
-      <p>Breakfast on the Namaqualand plains is less a meal than a quiet ceremony — a way of greeting a landscape that has been here long before you and will remain long after you leave.</p>
     </div>
   </div>
 </section>
 
-<!-- 4. LOCATION OVERVIEW -->
-<section id="location" style="background:var(--cream-dark);">
+<!-- FAQ -->
+<section id="faq">
   <div class="container">
-    <div class="location-wrap">
-      <div class="location-text">
-        <span class="eyebrow">Location Overview</span>
-        <h2>Namaqualand, Northern Cape</h2>
-        <p>Paardekraal Kliphuis sits on the R539 Droëdap road, on a working farm between Springbok and Kamieskroon. The rhythm here is slow, and it is easy to breathe.</p>
-        <p>The road in requires reasonable ground clearance — please check with us before you travel if you are unsure about your vehicle.</p>
-        <ul class="nearby-list">
-          <li><span class="dot">●</span> On the R539 Droëdap road, between Springbok &amp; Kamieskroon</li>
-          <li><span class="dot">●</span> Close to Namaqua National Park &amp; the Skilpad Wildflower Reserve</li>
-        </ul>
+    <div class="faq-wrap">
+      <img src="images/004.jpeg" alt="Wildflower meadow near the cottage">
+      <div class="faq-head">
+        <span class="eyebrow">Good To Know</span>
+        <h2>Frequently Asked Questions</h2>
+        <details class="faq-item">
+          <summary>What are the check-in and check-out times?</summary>
+          <p>Times are arranged directly with us when you book — message us on WhatsApp to confirm timing for your stay.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What is your cancellation policy?</summary>
+          <p>Get in touch with us directly via WhatsApp or email to discuss cancellations — we're happy to talk it through with you.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need a special vehicle to get there?</summary>
+          <p>The road in requires reasonable ground clearance. Please check with us before you travel if you're unsure about your vehicle.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is parking available?</summary>
+          <p>Yes, there's space to park on the property for the duration of your stay.</p>
+        </details>
+        <a href="book.html" class="btn btn-primary" style="margin-top:26px;">Book Your Stay</a>
       </div>
-      <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=-29.950387,17.961001&output=embed">
-      </iframe>
     </div>
   </div>
 </section>
 
-<!-- 5. PHOTO GALLERY -->
-<section class="booking" id="gallery">
+<!-- PACKAGES -->
+<section style="background:var(--cream-dark);">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Photo Gallery</span>
-      <h2>A Look Around the Property</h2>
-      <p>The view changes by the hour — here's a small taste.</p>
+    <div style="text-align:center;max-width:680px;margin:0 auto;">
+      <span class="eyebrow">Packages</span>
+      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:14px 0;">Choose Your Stay</h2>
+      <p style="color:var(--brown-soft);">Details on our packages are on the way — check back soon, or message us directly for current rates.</p>
     </div>
-    <div class="gallery-grid">
-      <a href="images/001.jpeg" target="_blank"><img src="images/001.jpeg" alt="Sunset over the rocky ridge"></a>
-      <a href="images/003.jpeg" target="_blank"><img src="images/003.jpeg" alt="Wildflower valley with mountains"></a>
-      <a href="images/004.jpeg" target="_blank"><img src="images/004.jpeg" alt="Gold wildflower meadow"></a>
-      <a href="images/005.jpeg" target="_blank"><img src="images/005.jpeg" alt="Baby goat on the farm"></a>
-      <a href="images/006.jpeg" target="_blank"><img src="images/006.jpeg" alt="Goats resting on the property"></a>
-      <a href="images/002.jpeg" target="_blank"><img src="images/002.jpeg" alt="Storm clouds over the veld"></a>
-    </div>
-  </div>
-</section>
-
-<!-- 6. DIRECT BOOKING / CONTACT -->
-<section id="booking">
-  <div class="container">
-    <div class="booking-wrap">
-      <div class="booking-info">
-        <span class="eyebrow">Book Your Stay</span>
-        <h2>Ready to Unplug?</h2>
-        <p>Availability is updated by hand. Pick a check-in and check-out date on the calendar, or message us directly on WhatsApp.</p>
-        <div class="booking-options">
-          <a href="https://wa.me/27834775303" target="_blank" rel="noopener" class="btn btn-primary">Message us on WhatsApp</a>
-          <a href="mailto:stay@paardekraalkliphuis.co.za" class="btn btn-secondary">Send an Email</a>
-        </div>
+    <div class="packages-grid">
+      <div class="package-card">
+        <h3>Package Name</h3>
+        <p>Details coming soon</p>
       </div>
-      <div id="booking-calendar">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-          <button id="cal-prev" aria-label="Previous month" class="btn btn-secondary" style="padding:6px 14px;font-size:1.1rem;">&#8249;</button>
-          <span id="cal-title" style="font-family:'Lora',serif;font-size:1.1rem;color:var(--brown);font-weight:600;"></span>
-          <button id="cal-next" aria-label="Next month" class="btn btn-secondary" style="padding:6px 14px;font-size:1.1rem;">&#8250;</button>
-        </div>
-
-        <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;"></div>
-
-        <div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:0.82rem;color:var(--brown-soft);">
-          <span><span style="display:inline-block;width:12px;height:12px;background:var(--cream-dark);border-radius:2px;vertical-align:middle;margin-right:4px;"></span>Available</span>
-          <span><span style="display:inline-block;width:12px;height:12px;background:var(--terracotta);border-radius:2px;vertical-align:middle;margin-right:4px;"></span>Selected</span>
-          <span><span style="display:inline-block;width:12px;height:12px;background:#efe7da;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>Past</span>
-        </div>
-
-        <div id="cal-summary" style="margin-top:18px;padding:14px 16px;background:var(--cream);border-radius:8px;display:none;">
-          <p style="margin:0 0 10px;color:var(--brown);font-size:0.95rem;">
-            <strong>Check-in:</strong> <span id="cal-checkin">—</span> &nbsp;|&nbsp;
-            <strong>Check-out:</strong> <span id="cal-checkout">—</span> &nbsp;|&nbsp;
-            <strong>Nights:</strong> <span id="cal-nights">—</span>
-          </p>
-          <a id="cal-whatsapp" href="#" target="_blank" rel="noopener" class="btn btn-primary" style="padding:10px 22px;font-size:0.9rem;">
-            Message us on WhatsApp →
-          </a>
-        </div>
+      <div class="package-card">
+        <h3>Package Name</h3>
+        <p>Details coming soon</p>
       </div>
-      <script>
-        (function () {
-          const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-          const DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
-          let viewYear = new Date().getFullYear(), viewMonth = new Date().getMonth();
-          let checkIn = null, checkOut = null;
-          function fmt(d) { return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear(); }
-          function render() {
-            document.getElementById('cal-title').textContent = MONTHS[viewMonth] + ' ' + viewYear;
-            const grid = document.getElementById('cal-grid');
-            grid.innerHTML = '';
-            DAYS.forEach(d => { const h = document.createElement('div'); h.className='cal-weekday'; h.textContent=d; grid.appendChild(h); });
-            const first = new Date(viewYear, viewMonth, 1).getDay();
-            const days = new Date(viewYear, viewMonth + 1, 0).getDate();
-            const today = new Date(); today.setHours(0,0,0,0);
-            for (let i = 0; i < first; i++) { const e=document.createElement('div'); e.className='cal-day empty'; grid.appendChild(e); }
-            for (let d = 1; d <= days; d++) {
-              const date = new Date(viewYear, viewMonth, d);
-              const cell = document.createElement('div'); cell.className='cal-day'; cell.textContent=d;
-              if (date < today) { cell.classList.add('past'); }
-              else {
-                const ts=date.getTime(), inTs=checkIn?checkIn.getTime():null, outTs=checkOut?checkOut.getTime():null;
-                if (inTs && ts===inTs) cell.classList.add('selected');
-                else if (outTs && ts===outTs) cell.classList.add('selected');
-                else if (inTs && outTs && ts>inTs && ts<outTs) cell.classList.add('in-range');
-                cell.addEventListener('click', () => pick(date));
-              }
-              grid.appendChild(cell);
-            }
-            updateSummary();
-          }
-          function pick(date) {
-            if (!checkIn || (checkIn && checkOut)) { checkIn=date; checkOut=null; }
-            else if (date <= checkIn) { checkIn=date; checkOut=null; }
-            else { checkOut=date; }
-            render();
-          }
-          function updateSummary() {
-            const s = document.getElementById('cal-summary');
-            if (checkIn && checkOut) {
-              const nights = Math.round((checkOut - checkIn) / 86400000);
-              document.getElementById('cal-checkin').textContent = fmt(checkIn);
-              document.getElementById('cal-checkout').textContent = fmt(checkOut);
-              document.getElementById('cal-nights').textContent = nights;
-              const msg = encodeURIComponent('Hi! I would like to book Paardekraal Kliphuis.\n\nCheck-in: ' + fmt(checkIn) + '\nCheck-out: ' + fmt(checkOut) + '\nNights: ' + nights);
-              document.getElementById('cal-whatsapp').href = 'https://wa.me/27834775303?text=' + msg;
-              s.style.display = 'block';
-            } else { s.style.display = 'none'; }
-          }
-          document.getElementById('cal-prev').addEventListener('click', () => { viewMonth--; if(viewMonth<0){viewMonth=11;viewYear--;} render(); });
-          document.getElementById('cal-next').addEventListener('click', () => { viewMonth++; if(viewMonth>11){viewMonth=0;viewYear++;} render(); });
-          render();
-        })();
-      </script>
+      <div class="package-card">
+        <h3>Package Name</h3>
+        <p>Details coming soon</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 7. ABOUT THE HOST -->
-<section id="host" style="background:var(--cream-dark);">
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <img class="cta-banner-img" src="images/003.jpeg" alt="Wildflower valley with mountains">
+  <div class="cta-card">
+    <h2>Experience Namaqualand, Slowly</h2>
+    <p>Escape to Paardekraal Kliphuis, your quiet corner of the Northern Cape. Reserve your stay and start your journey to slowing down.</p>
+    <a href="book.html" class="btn btn-primary">Book Your Stay</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
   <div class="container">
-    <div class="host-wrap">
-      <div class="host-photo">CJ</div>
-      <div class="host-text">
-        <span class="eyebrow">About Your Host</span>
-        <h2>Hi, I'm Cornelis</h2>
-        <p>Paardekraal Kliphuis is a working farm in the heart of Namaqualand. I love sharing this part of the world with guests looking for quiet, and space to breathe — a landscape that asks something of you, and gives back silence, strangeness and beauty in return.</p>
-        <div class="host-points">
-          <span>🌾 Working Farm</span>
-          <span>🌸 Wildflower Season</span>
-          <span>🏔️ Northern Cape, South Africa</span>
-        </div>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <img class="contact-photo" src="images/006.jpeg" alt="Goats resting on the farm">
+        <h3>Paardekraal Kliphuis</h3>
+        <p>R539 Droëdap Road<br>Between Springbok &amp; Kamieskroon<br>Northern Cape, South Africa</p>
+        <p style="margin-top:14px;">stay@paardekraalkliphuis.co.za<br>083 477 5303</p>
+      </div>
+      <div class="contact-form">
+        <h2>Get In Touch</h2>
+        <form id="inquiry-form">
+          <div class="form-row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your name" required>
+            </div>
+            <div>
+              <label for="dates">Preferred Dates</label>
+              <input id="dates" type="text" placeholder="e.g. 12–15 September">
+            </div>
+          </div>
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Any questions about the stay?"></textarea>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Submit</button>
+          <p class="form-note">Sends your message straight to us on WhatsApp — nothing is stored on this site.</p>
+        </form>
+        <script>
+          document.getElementById('inquiry-form').addEventListener('submit', function(e){
+            e.preventDefault();
+            var name = document.getElementById('name').value;
+            var dates = document.getElementById('dates').value;
+            var message = document.getElementById('message').value;
+            var text = 'Hi! My name is ' + name + '.\n' +
+              (dates ? 'Preferred dates: ' + dates + '\n' : '') +
+              (message ? 'Message: ' + message : '');
+            window.open('https://wa.me/27834775303?text=' + encodeURIComponent(text), '_blank');
+          });
+        </script>
       </div>
     </div>
   </div>
@@ -649,23 +570,31 @@
 <footer>
   <div class="container">
     <div class="footer-top">
-      <div class="footer-logo">Paardekraal <span>Kliphuis</span></div>
-      <div class="footer-contacts">
-        <a href="https://wa.me/27834775303" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.02h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"></path></svg>
-          <span>083 477 5303</span>
-        </a>
-        <a href="mailto:stay@paardekraalkliphuis.co.za" aria-label="Send an email">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.01L4.4 7H19.6L12 12.01ZM4 8.24V17h16V8.24l-7.43 4.88a1 1 0 0 1-1.14 0L4 8.24Z"></path></svg>
-          <span>stay@paardekraalkliphuis.co.za</span>
-        </a>
-        <a href="https://www.instagram.com/paardekraalkliphuis" target="_blank" rel="noopener" aria-label="Follow on Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-          <span>@paardekraalkliphuis</span>
-        </a>
-      </div>
+      <div class="footer-logo">Paardekraal Kliphuis</div>
+      <ul class="footer-links">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#welcome">About</a></li>
+        <li><a href="#amenities">Accommodation</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-contacts">
+      <a href="https://wa.me/27834775303" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.02h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"></path></svg>
+        <span>083 477 5303</span>
+      </a>
+      <a href="mailto:stay@paardekraalkliphuis.co.za" aria-label="Send an email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.01L4.4 7H19.6L12 12.01ZM4 8.24V17h16V8.24l-7.43 4.88a1 1 0 0 1-1.14 0L4 8.24Z"></path></svg>
+        <span>stay@paardekraalkliphuis.co.za</span>
+      </a>
+      <a href="https://www.instagram.com/paardekraalkliphuis" target="_blank" rel="noopener" aria-label="Follow on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+        <span>@paardekraalkliphuis</span>
+      </a>
+    </div>
+    <div class="footer-bottom" style="margin-top:30px;">
       © <span id="year">2026</span> Paardekraal Kliphuis · Northern Cape, South Africa
     </div>
   </div>

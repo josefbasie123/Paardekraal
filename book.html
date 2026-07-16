@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Stay | Paardekraal Kliphuis</title>
+<meta name="description" content="Check availability and book your stay at Paardekraal Kliphuis, Northern Cape.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --terracotta:#b5502e;
+    --terracotta-dark:#8f3c20;
+    --gold:#d99a3b;
+    --cream:#faf3e9;
+    --cream-dark:#f0e4d2;
+    --brown:#3a2c22;
+    --brown-soft:#6b5847;
+    --white:#ffffff;
+    --shadow:0 10px 30px rgba(58,44,34,0.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--brown);background:var(--cream);line-height:1.6;
+    min-height:100vh;display:flex;flex-direction:column;
+  }
+  a{color:inherit;}
+  h1,h2{font-family:'Playfair Display',Georgia,serif;color:var(--brown);font-weight:600;}
+  .btn{
+    display:inline-block;padding:12px 30px;border-radius:999px;font-weight:600;font-size:13px;
+    letter-spacing:1px;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;
+  }
+  .btn-primary{background:var(--terracotta);color:var(--white);}
+  .btn-primary:hover{background:var(--terracotta-dark);}
+  .btn-text{color:var(--brown-soft);font-size:13px;text-decoration:none;}
+  .btn-text:hover{color:var(--terracotta);}
+
+  header{padding:24px;text-align:center;border-bottom:1px solid rgba(58,44,34,0.08);}
+  .logo{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;letter-spacing:1.5px;}
+
+  main{flex:1;display:flex;align-items:center;justify-content:center;padding:50px 20px;}
+  .card{
+    width:100%;max-width:520px;background:var(--white);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:40px;text-align:center;
+  }
+  .card > .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:700;color:var(--terracotta);}
+  .card h1{font-size:26px;text-transform:uppercase;letter-spacing:1px;margin:10px 0 8px;}
+  .card > p{color:var(--brown-soft);font-size:14px;margin-bottom:28px;}
+
+  #cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;}
+  .cal-weekday{font-size:12px;color:var(--brown-soft);padding-bottom:6px;font-weight:600;}
+  .cal-day{padding:10px 4px;border-radius:4px;cursor:pointer;font-size:14px;background:var(--cream-dark);color:var(--brown);transition:background .15s;}
+  .cal-day:hover{background:#e6d5bc;}
+  .cal-day.past{background:#efe7da;color:#b6a893;cursor:default;pointer-events:none;}
+  .cal-day.selected{background:var(--terracotta);color:var(--white);}
+  .cal-day.in-range{background:var(--gold);color:var(--white);}
+  .cal-day.empty{background:none;cursor:default;pointer-events:none;}
+  .cal-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:16px;font-size:0.8rem;color:var(--brown-soft);}
+  .cal-legend span span{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:middle;margin-right:4px;}
+
+  footer{padding:24px;text-align:center;font-size:13px;color:var(--brown-soft);}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Paardekraal Kliphuis</a>
+</header>
+
+<main>
+  <div class="card">
+    <span class="eyebrow">Book Your Stay</span>
+    <h1>Check Availability</h1>
+    <p>Availability is updated by hand. Pick a check-in and check-out date, and we'll open WhatsApp with the details filled in for you.</p>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <button id="cal-prev" aria-label="Previous month" class="btn" style="background:var(--cream-dark);color:var(--brown);padding:8px 16px;">&#8249;</button>
+      <span id="cal-title" style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--brown);font-weight:600;"></span>
+      <button id="cal-next" aria-label="Next month" class="btn" style="background:var(--cream-dark);color:var(--brown);padding:8px 16px;">&#8250;</button>
+    </div>
+
+    <div id="cal-grid"></div>
+
+    <div class="cal-legend">
+      <span><span style="background:var(--cream-dark);"></span>Available</span>
+      <span><span style="background:var(--terracotta);"></span>Selected</span>
+      <span><span style="background:#efe7da;"></span>Past</span>
+    </div>
+
+    <div id="cal-summary" style="margin-top:20px;padding:16px;background:var(--cream);border-radius:8px;display:none;">
+      <p style="margin:0 0 12px;color:var(--brown);font-size:0.95rem;">
+        <strong>Check-in:</strong> <span id="cal-checkin">—</span><br>
+        <strong>Check-out:</strong> <span id="cal-checkout">—</span><br>
+        <strong>Nights:</strong> <span id="cal-nights">—</span>
+      </p>
+      <a id="cal-whatsapp" href="#" target="_blank" rel="noopener" class="btn btn-primary">Message us on WhatsApp →</a>
+    </div>
+
+    <p style="margin-top:26px;">
+      <a href="index.html" class="btn-text">&larr; Back to Home</a>
+    </p>
+  </div>
+</main>
+
+<footer>
+  083 477 5303 · stay@paardekraalkliphuis.co.za · Northern Cape, South Africa
+</footer>
+
+<script>
+  (function () {
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+    let viewYear = new Date().getFullYear(), viewMonth = new Date().getMonth();
+    let checkIn = null, checkOut = null;
+    function fmt(d) { return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear(); }
+    function render() {
+      document.getElementById('cal-title').textContent = MONTHS[viewMonth] + ' ' + viewYear;
+      const grid = document.getElementById('cal-grid');
+      grid.innerHTML = '';
+      DAYS.forEach(d => { const h = document.createElement('div'); h.className='cal-weekday'; h.textContent=d; grid.appendChild(h); });
+      const first = new Date(viewYear, viewMonth, 1).getDay();
+      const days = new Date(viewYear, viewMonth + 1, 0).getDate();
+      const today = new Date(); today.setHours(0,0,0,0);
+      for (let i = 0; i < first; i++) { const e=document.createElement('div'); e.className='cal-day empty'; grid.appendChild(e); }
+      for (let d = 1; d <= days; d++) {
+        const date = new Date(viewYear, viewMonth, d);
+        const cell = document.createElement('div'); cell.className='cal-day'; cell.textContent=d;
+        if (date < today) { cell.classList.add('past'); }
+        else {
+          const ts=date.getTime(), inTs=checkIn?checkIn.getTime():null, outTs=checkOut?checkOut.getTime():null;
+          if (inTs && ts===inTs) cell.classList.add('selected');
+          else if (outTs && ts===outTs) cell.classList.add('selected');
+          else if (inTs && outTs && ts>inTs && ts<outTs) cell.classList.add('in-range');
+          cell.addEventListener('click', () => pick(date));
+        }
+        grid.appendChild(cell);
+      }
+      updateSummary();
+    }
+    function pick(date) {
+      if (!checkIn || (checkIn && checkOut)) { checkIn=date; checkOut=null; }
+      else if (date <= checkIn) { checkIn=date; checkOut=null; }
+      else { checkOut=date; }
+      render();
+    }
+    function updateSummary() {
+      const s = document.getElementById('cal-summary');
+      if (checkIn && checkOut) {
+        const nights = Math.round((checkOut - checkIn) / 86400000);
+        document.getElementById('cal-checkin').textContent = fmt(checkIn);
+        document.getElementById('cal-checkout').textContent = fmt(checkOut);
+        document.getElementById('cal-nights').textContent = nights;
+        const msg = encodeURIComponent('Hi! I would like to book Paardekraal Kliphuis.\n\nCheck-in: ' + fmt(checkIn) + '\nCheck-out: ' + fmt(checkOut) + '\nNights: ' + nights);
+        document.getElementById('cal-whatsapp').href = 'https://wa.me/27834775303?text=' + msg;
+        s.style.display = 'block';
+      } else { s.style.display = 'none'; }
+    }
+    document.getElementById('cal-prev').addEventListener('click', () => { viewMonth--; if(viewMonth<0){viewMonth=11;viewYear--;} render(); });
+    document.getElementById('cal-next').addEventListener('click', () => { viewMonth++; if(viewMonth>11){viewMonth=0;viewYear++;} render(); });
+    render();
+  })();
+</script>
+
+</body>
+</html>
