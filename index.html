@@ -264,39 +264,6 @@
 </section>
 
 <hr class="divider">
-<!-- GALLERY STRIP -->
-<div class="strip">
-  <button class="strip-arrow" id="strip-prev" aria-label="Previous photos">&#8249;</button>
-  <div class="strip-track" id="strip-track">
-    <img src="images/003.jpeg" alt="Wildflower valley with mountains" data-i="0">
-    <img src="images/004.jpeg" alt="Gold wildflower meadow" data-i="1">
-    <img src="images/006.jpeg" alt="Goats resting on the property" data-i="2">
-  </div>
-  <button class="strip-arrow" id="strip-next" aria-label="Next photos">&#8250;</button>
-</div>
-<script>
-  (function(){
-    var photos = ['images/003.jpeg','images/004.jpeg','images/006.jpeg','images/002.jpeg','images/005.jpeg'];
-    var alts = ['Wildflower valley with mountains','Gold wildflower meadow','Goats resting on the property','Storm clouds over the veld','Baby goat on the farm'];
-    var offset = 0;
-    var imgs = document.querySelectorAll('#strip-track img');
-    function update(){
-      imgs.forEach(function(img, i){
-        var idx = (offset + i) % photos.length;
-        img.src = photos[idx];
-        img.alt = alts[idx];
-      });
-    }
-    document.getElementById('strip-prev').addEventListener('click', function(){
-      offset = (offset - 1 + photos.length) % photos.length; update();
-    });
-    document.getElementById('strip-next').addEventListener('click', function(){
-      offset = (offset + 1) % photos.length; update();
-    });
-  })();
-</script>
-
-<hr class="divider">
 <!-- WELCOME -->
 <section id="welcome" style="padding:0;">
   <div class="split">
