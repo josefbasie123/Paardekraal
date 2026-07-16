@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | Paardekraal Kliphuis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --terracotta:#cdbb96;
+    --terracotta-dark:#b9a67e;
+    --cream:#f6efe2;
+    --brown:#241f19;
+    --brown-soft:#6e6255;
+    --white:#ffffff;
+    --shadow:0 10px 30px rgba(36,31,25,0.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Source Sans 3',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--brown);background:var(--cream);line-height:1.6;
+    min-height:100vh;display:flex;flex-direction:column;
+  }
+  a{color:inherit;text-decoration:none;}
+  header{padding:24px;text-align:center;border-bottom:1px solid rgba(36,31,25,0.08);}
+  .logo{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;letter-spacing:1.5px;text-transform:uppercase;}
+
+  main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 20px;}
+  .menu-list{width:100%;max-width:420px;display:flex;flex-direction:column;}
+  .menu-list a{
+    padding:22px 6px;border-bottom:1px solid rgba(36,31,25,0.12);
+    font-family:'Playfair Display',serif;font-size:24px;letter-spacing:1px;text-transform:uppercase;
+    text-align:center;transition:color .15s;
+  }
+  .menu-list a:first-child{border-top:1px solid rgba(36,31,25,0.12);}
+  .menu-list a:hover{color:var(--terracotta-dark);}
+  .menu-list a.book{
+    margin-top:26px;border:none;background:var(--terracotta);color:var(--brown);border-radius:999px;
+    padding:16px 6px;font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;
+  }
+  .menu-list a.book:hover{background:var(--terracotta-dark);}
+
+  footer{padding:24px;text-align:center;font-size:13px;color:var(--brown-soft);}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Paardekraal Kliphuis</a>
+</header>
+
+<main>
+  <nav class="menu-list" aria-label="Site menu">
+    <a href="index.html#top">Home</a>
+    <a href="index.html#welcome">About</a>
+    <a href="index.html#welcome">Accommodation</a>
+    <a href="index.html#packages">Packages</a>
+    <a href="index.html#location">Explore</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="book.html" class="book">Book Now</a>
+  </nav>
+</main>
+
+<footer>
+  083 477 5303 · stay@paardekraalkliphuis.co.za · Northern Cape, South Africa
+</footer>
+
+</body>
+</html>
