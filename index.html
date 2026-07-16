@@ -240,6 +240,26 @@
     border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;margin-top:30px;
     font-size:12px;text-align:center;color:#a6957f;
   }
+
+  /* ACTIVITIES */
+  .activity-block{max-width:720px;margin:0 auto 48px;text-align:center;}
+  .activity-block h3{font-size:22px;margin-bottom:12px;}
+  .activity-block p{color:var(--brown-soft);margin-bottom:12px;}
+  .bird-table-wrap{overflow-x:auto;max-width:800px;margin:0 auto 56px;}
+  .bird-table{width:100%;border-collapse:collapse;font-size:14px;color:var(--brown);}
+  .bird-table th{background:var(--cream-dark);padding:8px 12px;text-align:left;font-family:'Lora',serif;font-weight:600;border-bottom:2px solid #ddccb8;}
+  .bird-table th:last-child, .bird-table td:last-child{font-style:italic;}
+  .bird-table td{padding:6px 12px;border-bottom:1px solid var(--cream-dark);}
+  .bird-table tr:nth-child(even){background:#fbf6ef;}
+
+  /* BOOKING CALENDAR */
+  .cal-day{padding:8px 4px;border-radius:4px;cursor:pointer;font-size:14px;background:var(--cream-dark);color:var(--brown);transition:background .15s;}
+  .cal-day:hover{background:#e6d5bc;}
+  .cal-day.past{background:#efe7da;color:#b6a893;cursor:default;pointer-events:none;}
+  .cal-day.selected{background:var(--terracotta);color:var(--white);}
+  .cal-day.in-range{background:var(--gold);color:var(--white);}
+  .cal-day.empty{background:none;cursor:default;pointer-events:none;}
+  .cal-weekday{font-size:12px;color:var(--brown-soft);padding-bottom:6px;font-weight:600;}
 </style>
 </head>
 <body>
@@ -252,6 +272,7 @@
     </button>
     <ul class="nav-menu" id="nav-menu">
       <li><a href="#amenities">The Cottage</a></li>
+      <li><a href="#activities">Activities</a></li>
       <li><a href="#location">Location</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#host">Host</a></li>
@@ -296,7 +317,12 @@
     <div class="section-head">
       <span class="eyebrow">The Cottage</span>
       <h2>Everything You Need, Nothing You Don't</h2>
-      <p>Built from the same rough granite that litters the surrounding hillside, sun-bleached and mortared by hands that knew this landscape intimately.</p>
+      <p>The cottage sits low against the land, at the foot of a mountain. Built from the same rough granite that litters the surrounding hillside, sun-bleached and mortared by hands that knew this landscape intimately.</p>
+    </div>
+    <div style="max-width:720px;margin:0 auto 48px;color:var(--brown-soft);display:grid;gap:16px;">
+      <p>The veranda faces North-East to catch the winter sun, with a braai area to the one side and a simple wooden bench where you can watch the extraordinary light change over the plains.</p>
+      <p>When you step inside, the thick walls announce themselves — keeping you cool in summer and holding warmth on cold winter nights. The fully equipped kitchen occupies one corner, with a built-in fireplace for cooking or keeping warm, leading through to the comfortable couch in the lounge and glass doors that open onto the landscape.</p>
+      <p>The bedroom with an en-suite bathroom is unpretentious but deeply comfortable, with a woodstove and a view of the rising sun.</p>
     </div>
     <div class="amenities-grid">
       <div class="amenity-card"><div class="icon">🔥</div><h4>Fireplace &amp; Woodstove</h4><p>Built-in fireplace for cooking or keeping warm</p></div>
@@ -325,7 +351,146 @@
   </div>
 </section>
 
-<!-- 3. LOCATION OVERVIEW -->
+<!-- 3. ACTIVITIES -->
+<section id="activities" style="background:var(--cream-dark);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Things To Do</span>
+      <h2>Slow Down, and Look Closer</h2>
+      <p>Namaqualand rewards the traveler who slows down and learns to read a landscape that hides its riches in plain sight.</p>
+    </div>
+
+    <div class="activity-block">
+      <h3>Birdwatching</h3>
+      <p>This semi-arid land is one of the world's biodiversity hotspots and the bird community reflects this richness. A mosaic of micro-habitats support a surprising diversity of species.</p>
+      <p>Namaqualand however is not a place of easy ticks and dense flocks. It rewards the traveler who slows down, tunes their ear to the silence and learns to read a landscape that hides its riches in plain sight.</p>
+    </div>
+
+    <div class="bird-table-wrap">
+      <table class="bird-table">
+        <thead>
+          <tr><th>#</th><th>English</th><th>Afrikaans</th><th>Scientific</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Batis, Pririt</td><td>Bosbontrokkie</td><td>Batis pririt</td></tr>
+          <tr><td>2</td><td>Barbet, Acacia Pied</td><td>Bonthoutkapper</td><td>Tricholaema leucomelas</td></tr>
+          <tr><td>3</td><td>Bokmakierie</td><td>Bokmakierie</td><td>Telophorus zeylonus</td></tr>
+          <tr><td>4</td><td>Bulbul, Cape</td><td>Kaapse tiptol</td><td>Pycnonotus capensis</td></tr>
+          <tr><td>5</td><td>Bulbul, African Red-eyed</td><td>Rooioogtiptol</td><td>Pycnonotus nigricans</td></tr>
+          <tr><td>6</td><td>Bunting, Cape</td><td>Rooivlerkstreepkoppie</td><td>Emberiza capensis</td></tr>
+          <tr><td>7</td><td>Bunting, Lark-like</td><td>Vaalstreepkoppie</td><td>Emberiza impetuani</td></tr>
+          <tr><td>8</td><td>Bustard, Ludwig</td><td>Ludwigpou</td><td>Neotis ludwigii</td></tr>
+          <tr><td>9</td><td>Buzzard, Jackal</td><td>Rooiborsjakkalsvoël</td><td>Buteo rufofuscus</td></tr>
+          <tr><td>10</td><td>Canary, Black-headed</td><td>Swartkopkanarie</td><td>Serinus alario</td></tr>
+          <tr><td>11</td><td>Canary, Black-throated</td><td>Bergkanarie</td><td>Crithagra atrogularis</td></tr>
+          <tr><td>12</td><td>Canary, White-throated</td><td>Witkeelkanarie</td><td>Crithagra albogularis</td></tr>
+          <tr><td>13</td><td>Canary, Yellow</td><td>Geelkanarie</td><td>Crithagra flaviventris</td></tr>
+          <tr><td>14</td><td>Chat, Ant-eating</td><td>Swartpiek</td><td>Myrmecocichla formicivora</td></tr>
+          <tr><td>15</td><td>Chat, Familiar</td><td>Gewone spekvreter</td><td>Cercomela familiaris</td></tr>
+          <tr><td>16</td><td>Chat, Karoo</td><td>Karoospekvreter</td><td>Cercomela sinuata</td></tr>
+          <tr><td>17</td><td>Chat, Tractrac</td><td>Woestynspekvreter</td><td>Cercomela tractrac</td></tr>
+          <tr><td>18</td><td>Cisticola, Grey-backed</td><td>Grysrug tinktinkie</td><td>Cisticola subruficapilla</td></tr>
+          <tr><td>19</td><td>Courser, Double-banded</td><td>Dubbelbanddrawwertjie</td><td>Rhinoptilus africanus</td></tr>
+          <tr><td>20</td><td>Crombec, Long-billed</td><td>Bosveldstompstert</td><td>Sylvietta rufescens</td></tr>
+          <tr><td>21</td><td>Crow, Cape</td><td>Swartkraai</td><td>Corvus capensis</td></tr>
+          <tr><td>22</td><td>Crow, Pied</td><td>Witborskraai</td><td>Corvus albus</td></tr>
+          <tr><td>23</td><td>Dove, Laughing</td><td>Rooiborsduifie</td><td>Streptopelia senegalensis</td></tr>
+          <tr><td>24</td><td>Dove, Namaqua</td><td>Namakwaduifie</td><td>Oena capensis</td></tr>
+          <tr><td>25</td><td>Dove, Ring-necked</td><td>Gewone tortelduif</td><td>Streptopelia capicola</td></tr>
+          <tr><td>26</td><td>Eagle, Booted</td><td>Dwergarend</td><td>Aquila pennatus</td></tr>
+          <tr><td>27</td><td>Eagle, Martial</td><td>Breëkoparend</td><td>Polemaetus bellicosus</td></tr>
+          <tr><td>28</td><td>Eagle, Verreaux's</td><td>Witkruisarend</td><td>Aquila verreauxii</td></tr>
+          <tr><td>29</td><td>Egret, Western Cattle</td><td>Veereier</td><td>Bubulcus ibis</td></tr>
+          <tr><td>30</td><td>Eremomela, Karoo</td><td>Groenbossanger</td><td>Eremomela gregalis</td></tr>
+          <tr><td>31</td><td>Eremomela, Yellow-bellied</td><td>Geelpensbossanger</td><td>Eremomela icteropygialis</td></tr>
+          <tr><td>32</td><td>Fiscal, Southern</td><td>Janfiskaal</td><td>Lanius collaris</td></tr>
+          <tr><td>33</td><td>Finch, Red-headed</td><td>Rooikopvink</td><td>Amadina erythrocephala</td></tr>
+          <tr><td>34</td><td>Finch, Scaly-feathered</td><td>Baardmannetjie</td><td>Sporopipes squamifrons</td></tr>
+          <tr><td>35</td><td>Flycatcher, Chat</td><td>Grootvlieëvanger</td><td>Bradornis infuscatus</td></tr>
+          <tr><td>36</td><td>Flycatcher, Fairy</td><td>Feevlieëvanger</td><td>Stenostira scita</td></tr>
+          <tr><td>37</td><td>Goshawk, Pale Chanting</td><td>Bleeksingvalk</td><td>Melierax canorus</td></tr>
+          <tr><td>38</td><td>Harrier, Black</td><td>Witkruisvleivalk</td><td>Circus maurus</td></tr>
+          <tr><td>39</td><td>Kestrel, Greater</td><td>Grootrooivalk</td><td>Falco rupicoloides</td></tr>
+          <tr><td>40</td><td>Kestrel, Rock</td><td>Kransvalk</td><td>Falco rupicolus</td></tr>
+          <tr><td>41</td><td>Kite, Black-winged</td><td>Blouvalk</td><td>Elanus caeruleus</td></tr>
+          <tr><td>42</td><td>Korhaan, Karoo</td><td>Vaalkorhaan</td><td>Eupodotis vigorsii</td></tr>
+          <tr><td>43</td><td>Korhaan, Northern Black</td><td>Witvlerkkorhaan</td><td>Afrotis afraoides</td></tr>
+          <tr><td>44</td><td>Korhaan, Southern Black</td><td>Swartvlerkkorhaan</td><td>Afrotis afra</td></tr>
+          <tr><td>45</td><td>Lapwing, Crowned</td><td>Kroonkiewiet</td><td>Vanellus coronatus</td></tr>
+          <tr><td>46</td><td>Lark, Cape Clapper</td><td>Kaapse Klappertjie</td><td>Mirafra apiata</td></tr>
+          <tr><td>47</td><td>Lark, Cape Long-billed</td><td>Langbeklewerik</td><td>Certhilauda curvirostris</td></tr>
+          <tr><td>48</td><td>Lark, Karoo</td><td>Karoolewerik</td><td>Calendulauda albescens</td></tr>
+          <tr><td>49</td><td>Lark, Large-billed</td><td>Dikbeklewerik</td><td>Galerida magnirostris</td></tr>
+          <tr><td>50</td><td>Lark, Red</td><td>Rooilewerik</td><td>Calendulauda burra</td></tr>
+          <tr><td>51</td><td>Lark, Spike-heeled</td><td>Vlaktelewerik</td><td>Chersomanes albofasciata</td></tr>
+          <tr><td>52</td><td>Lark, Stark's</td><td>Woestynlewerik</td><td>Spizocorys starki</td></tr>
+          <tr><td>53</td><td>Martin, Rock</td><td>Kransswael</td><td>Ptyonoprogne fuligula</td></tr>
+          <tr><td>54</td><td>Mousebird, White-backed</td><td>Witrug muisvoël</td><td>Colius colius</td></tr>
+          <tr><td>55</td><td>Mousebird, Red-faced</td><td>Rooiwang muisvoël</td><td>Urocolius indicus</td></tr>
+          <tr><td>56</td><td>Owl, Spotted Eagle</td><td>Gevlekte ooruil</td><td>Bubo africanus</td></tr>
+          <tr><td>57</td><td>Pigeon, Speckled</td><td>Kransduif</td><td>Columba guinea</td></tr>
+          <tr><td>58</td><td>Pipit, African</td><td>Koester</td><td>Anthus cinnamomeus</td></tr>
+          <tr><td>59</td><td>Prinia, Black-chested</td><td>Swartbandlangstertjie</td><td>Prinia flavicans</td></tr>
+          <tr><td>60</td><td>Prinia, Karoo</td><td>Karoolangstertjie</td><td>Prinia maculosa</td></tr>
+          <tr><td>61</td><td>Quail, Common</td><td>Afrikaanse Kwartel</td><td>Coturnix coturnix</td></tr>
+          <tr><td>62</td><td>Raven, White-necked</td><td>Withalskraai</td><td>Corvus albicollis</td></tr>
+          <tr><td>63</td><td>Robin, Karoo Scrub</td><td>Slangverklikker</td><td>Erythropygia coryphaeus</td></tr>
+          <tr><td>64</td><td>Sandgrouse, Namaqua</td><td>Kelkiewyn</td><td>Pterocles namaqua</td></tr>
+          <tr><td>65</td><td>Snake Eagle, Black-chested</td><td>Swartborsslangarend</td><td>Circaetus pectoralis</td></tr>
+          <tr><td>66</td><td>Sparrow, Cape</td><td>Gewone mossie</td><td>Passer melanurus</td></tr>
+          <tr><td>67</td><td>Sparrow, House</td><td>Huismossie</td><td>Passer diffusus</td></tr>
+          <tr><td>68</td><td>Sparrow-lark, Black-eared</td><td>Swartoorlewerik</td><td>Eremopterix australis</td></tr>
+          <tr><td>69</td><td>Sparrow-lark, Grey-backed</td><td>Grysruglewerik</td><td>Eremopterix verticalis</td></tr>
+          <tr><td>70</td><td>Starling, Pale-winged</td><td>Bleekvlerkspreeu</td><td>Onychognathus nabouroup</td></tr>
+          <tr><td>71</td><td>Starling, Pied</td><td>Witgatspreeu</td><td>Lamprotornis bicolor</td></tr>
+          <tr><td>72</td><td>Starling, Wattled</td><td>Lelspreeu</td><td>Creatophora cinerea</td></tr>
+          <tr><td>73</td><td>Sunbird, Dusky</td><td>Namakwasuikerbekkie</td><td>Cinnyris fuscus</td></tr>
+          <tr><td>74</td><td>Sunbird, Malachite</td><td>Jangroentjie</td><td>Nectarinia famosa</td></tr>
+          <tr><td>75</td><td>Sunbird, Southern Double-coloured</td><td>Klein-rooibandsuikerbekkie</td><td>Cinnyris chalybeus</td></tr>
+          <tr><td>76</td><td>Swift, Alpine</td><td>Witpens windswael</td><td>Tachymarptis aequatorialis</td></tr>
+          <tr><td>77</td><td>Swift, Common</td><td>Europese Windswael</td><td>Apus apus</td></tr>
+          <tr><td>78</td><td>Swift, Little</td><td>Kleinwindswael</td><td>Apus affinis</td></tr>
+          <tr><td>79</td><td>Thick-knee, Spotted</td><td>Gewone Dikkop</td><td>Burhinus capensis</td></tr>
+          <tr><td>80</td><td>Tit, Grey</td><td>Piet-tjou-tjou-grysmees</td><td>Parus afer</td></tr>
+          <tr><td>81</td><td>Tit, Cape Penduline</td><td>Kaapse Kapokvoël</td><td>Anthoscopus minutus</td></tr>
+          <tr><td>82</td><td>Warbler, Chestnut-vented</td><td>Bosveld Cheriktik</td><td>Sylvia subcaeruleum</td></tr>
+          <tr><td>83</td><td>Warbler, Cinnamon-breasted</td><td>Kaneelborssanger</td><td>Euryptila subcinnamomea</td></tr>
+          <tr><td>84</td><td>Warbler, Rufous-eared</td><td>Rooioorlangstertjie</td><td>Malcorus pectoralis</td></tr>
+          <tr><td>85</td><td>Warbler, Namaqua</td><td>Namakwalangstertjie</td><td>Phragmacia substriata</td></tr>
+          <tr><td>86</td><td>Wheatear, Capped</td><td>Hoëveldskaapwagter</td><td>Oenanthe pileata</td></tr>
+          <tr><td>87</td><td>Wheatear, Mountain</td><td>Bergwagter</td><td>Oenanthe monticola</td></tr>
+          <tr><td>88</td><td>Woodpecker, Ground</td><td>Grondspeg</td><td>Geocolaptes olivaceus</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="activity-block">
+      <h3>Photography</h3>
+      <p>Paardekraal has a landscape of rolling plains, granite kopjes (rocky outcrops) and dry riverbeds under an enormous sky. For most of the year it is a study in ochres, greys and dusty greens — thorny shrubs, succulents and sun-bleached rock.</p>
+      <p>The light here is extraordinary: low-angled in the morning and evening, and intensely directional. But Namaqualand's most famous trick is its spring transformation. Between late July and September it erupts into a spectacular wildflower display — carpets of orange, yellow, purple and white.</p>
+    </div>
+
+    <div class="activity-block">
+      <h3>Cycling</h3>
+      <p>The road network is any gravel cyclist's quiet dream. The gradients on the plains are gentle and generally rideable on a gravel bike or mountain bike.</p>
+      <p>The scenery shifts slowly as you move through it. Cycling gives you something driving never can: the smell of the shrubs, the sound of wind and larks, and the full physical experience of the scale of the landscape.</p>
+    </div>
+
+    <div class="activity-block">
+      <h3>Hiking</h3>
+      <p>The hiking landscape consists of open plains, seemingly featureless from a distance but alive underfoot with quartz pebbles, dwarf succulents, lizard tracks and plants that have learned to survive on almost nothing.</p>
+      <p>Rounded, boulder-strewn rocky outcrops punctuate the plains — cool shade, surprising plant life clinging to the cracks, and panoramic views from the top across a landscape that seems to go on forever.</p>
+    </div>
+
+    <div class="activity-block" style="margin-bottom:0;">
+      <h3>Breakfast on the Plains</h3>
+      <p>There is no agenda. The nearest town is an hour away. Your phone has no signal. The bread is freshly baked, the coffee is hot, and the world in front of you is ancient, enormous and unhurried.</p>
+      <p>Breakfast on the Namaqualand plains is less a meal than a quiet ceremony — a way of greeting a landscape that has been here long before you and will remain long after you leave.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. LOCATION OVERVIEW -->
 <section id="location" style="background:var(--cream-dark);">
   <div class="container">
     <div class="location-wrap">
@@ -346,7 +511,7 @@
   </div>
 </section>
 
-<!-- 4. PHOTO GALLERY -->
+<!-- 5. PHOTO GALLERY -->
 <section class="booking" id="gallery">
   <div class="container">
     <div class="section-head">
@@ -365,46 +530,104 @@
   </div>
 </section>
 
-<!-- 5. DIRECT BOOKING / CONTACT -->
+<!-- 6. DIRECT BOOKING / CONTACT -->
 <section id="booking">
   <div class="container">
     <div class="booking-wrap">
       <div class="booking-info">
         <span class="eyebrow">Book Your Stay</span>
         <h2>Ready to Unplug?</h2>
-        <p>Availability is updated by hand. Message us on WhatsApp to check dates, or send a message below and we'll reply directly.</p>
+        <p>Availability is updated by hand. Pick a check-in and check-out date on the calendar, or message us directly on WhatsApp.</p>
         <div class="booking-options">
           <a href="https://wa.me/27834775303" target="_blank" rel="noopener" class="btn btn-primary">Message us on WhatsApp</a>
           <a href="mailto:stay@paardekraalkliphuis.co.za" class="btn btn-secondary">Send an Email</a>
         </div>
       </div>
-      <form id="inquiry-form">
-        <label for="name">Name</label>
-        <input id="name" type="text" placeholder="Your name" required>
-        <label for="dates">Preferred Dates</label>
-        <input id="dates" type="text" placeholder="e.g. 12–15 September">
-        <label for="message">Message</label>
-        <textarea id="message" placeholder="Any questions about the stay?"></textarea>
-        <button type="submit" class="btn btn-primary">Send via WhatsApp</button>
-        <p class="form-note">Sends your message straight to us on WhatsApp — nothing is stored on this site.</p>
-      </form>
+      <div id="booking-calendar">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <button id="cal-prev" aria-label="Previous month" class="btn btn-secondary" style="padding:6px 14px;font-size:1.1rem;">&#8249;</button>
+          <span id="cal-title" style="font-family:'Lora',serif;font-size:1.1rem;color:var(--brown);font-weight:600;"></span>
+          <button id="cal-next" aria-label="Next month" class="btn btn-secondary" style="padding:6px 14px;font-size:1.1rem;">&#8250;</button>
+        </div>
+
+        <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;"></div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:0.82rem;color:var(--brown-soft);">
+          <span><span style="display:inline-block;width:12px;height:12px;background:var(--cream-dark);border-radius:2px;vertical-align:middle;margin-right:4px;"></span>Available</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:var(--terracotta);border-radius:2px;vertical-align:middle;margin-right:4px;"></span>Selected</span>
+          <span><span style="display:inline-block;width:12px;height:12px;background:#efe7da;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>Past</span>
+        </div>
+
+        <div id="cal-summary" style="margin-top:18px;padding:14px 16px;background:var(--cream);border-radius:8px;display:none;">
+          <p style="margin:0 0 10px;color:var(--brown);font-size:0.95rem;">
+            <strong>Check-in:</strong> <span id="cal-checkin">—</span> &nbsp;|&nbsp;
+            <strong>Check-out:</strong> <span id="cal-checkout">—</span> &nbsp;|&nbsp;
+            <strong>Nights:</strong> <span id="cal-nights">—</span>
+          </p>
+          <a id="cal-whatsapp" href="#" target="_blank" rel="noopener" class="btn btn-primary" style="padding:10px 22px;font-size:0.9rem;">
+            Message us on WhatsApp →
+          </a>
+        </div>
+      </div>
       <script>
-        document.getElementById('inquiry-form').addEventListener('submit', function(e){
-          e.preventDefault();
-          var name = document.getElementById('name').value;
-          var dates = document.getElementById('dates').value;
-          var message = document.getElementById('message').value;
-          var text = 'Hi! My name is ' + name + '.\n' +
-            (dates ? 'Preferred dates: ' + dates + '\n' : '') +
-            (message ? 'Message: ' + message : '');
-          window.open('https://wa.me/27834775303?text=' + encodeURIComponent(text), '_blank');
-        });
+        (function () {
+          const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+          const DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+          let viewYear = new Date().getFullYear(), viewMonth = new Date().getMonth();
+          let checkIn = null, checkOut = null;
+          function fmt(d) { return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear(); }
+          function render() {
+            document.getElementById('cal-title').textContent = MONTHS[viewMonth] + ' ' + viewYear;
+            const grid = document.getElementById('cal-grid');
+            grid.innerHTML = '';
+            DAYS.forEach(d => { const h = document.createElement('div'); h.className='cal-weekday'; h.textContent=d; grid.appendChild(h); });
+            const first = new Date(viewYear, viewMonth, 1).getDay();
+            const days = new Date(viewYear, viewMonth + 1, 0).getDate();
+            const today = new Date(); today.setHours(0,0,0,0);
+            for (let i = 0; i < first; i++) { const e=document.createElement('div'); e.className='cal-day empty'; grid.appendChild(e); }
+            for (let d = 1; d <= days; d++) {
+              const date = new Date(viewYear, viewMonth, d);
+              const cell = document.createElement('div'); cell.className='cal-day'; cell.textContent=d;
+              if (date < today) { cell.classList.add('past'); }
+              else {
+                const ts=date.getTime(), inTs=checkIn?checkIn.getTime():null, outTs=checkOut?checkOut.getTime():null;
+                if (inTs && ts===inTs) cell.classList.add('selected');
+                else if (outTs && ts===outTs) cell.classList.add('selected');
+                else if (inTs && outTs && ts>inTs && ts<outTs) cell.classList.add('in-range');
+                cell.addEventListener('click', () => pick(date));
+              }
+              grid.appendChild(cell);
+            }
+            updateSummary();
+          }
+          function pick(date) {
+            if (!checkIn || (checkIn && checkOut)) { checkIn=date; checkOut=null; }
+            else if (date <= checkIn) { checkIn=date; checkOut=null; }
+            else { checkOut=date; }
+            render();
+          }
+          function updateSummary() {
+            const s = document.getElementById('cal-summary');
+            if (checkIn && checkOut) {
+              const nights = Math.round((checkOut - checkIn) / 86400000);
+              document.getElementById('cal-checkin').textContent = fmt(checkIn);
+              document.getElementById('cal-checkout').textContent = fmt(checkOut);
+              document.getElementById('cal-nights').textContent = nights;
+              const msg = encodeURIComponent('Hi! I would like to book Paardekraal Kliphuis.\n\nCheck-in: ' + fmt(checkIn) + '\nCheck-out: ' + fmt(checkOut) + '\nNights: ' + nights);
+              document.getElementById('cal-whatsapp').href = 'https://wa.me/27834775303?text=' + msg;
+              s.style.display = 'block';
+            } else { s.style.display = 'none'; }
+          }
+          document.getElementById('cal-prev').addEventListener('click', () => { viewMonth--; if(viewMonth<0){viewMonth=11;viewYear--;} render(); });
+          document.getElementById('cal-next').addEventListener('click', () => { viewMonth++; if(viewMonth>11){viewMonth=0;viewYear++;} render(); });
+          render();
+        })();
       </script>
     </div>
   </div>
 </section>
 
-<!-- 6. ABOUT THE HOST -->
+<!-- 7. ABOUT THE HOST -->
 <section id="host" style="background:var(--cream-dark);">
   <div class="container">
     <div class="host-wrap">
