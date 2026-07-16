@@ -64,6 +64,19 @@
   .hero-text h1{font-size:38px;line-height:1.25;max-width:760px;margin:0 auto 18px;text-transform:uppercase;letter-spacing:1px;}
   .hero-text p{max-width:520px;margin:0 auto 34px;color:var(--brown-soft);font-size:16px;}
 
+  /* SINGLE-IMAGE SLIDER */
+  .slider{display:flex;align-items:center;gap:14px;padding:0 24px 0;max-width:1000px;margin:0 auto;}
+  .slider-arrow{
+    flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--brown);background:none;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--brown);
+  }
+  .slider-arrow:hover{background:var(--brown);color:var(--white);}
+  .slider-frame{flex:1;overflow:hidden;border-radius:8px;}
+  .slider-frame img{width:100%;height:420px;object-fit:cover;display:block;}
+  .slider-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;}
+  .slider-dots span{width:8px;height:8px;border-radius:50%;background:var(--cream-dark);display:block;}
+  .slider-dots span.active{background:var(--terracotta-dark);}
+
   /* STRIP GALLERY — 3 visible photos + arrows */
   .strip{display:flex;align-items:center;gap:14px;padding:0 24px 90px;max-width:1000px;margin:0 auto;}
   .strip-arrow{
@@ -183,12 +196,58 @@
 </div>
 
 <hr class="divider">
-<!-- HERO TEXT -->
-<section class="hero-text">
+<!-- ACCOMMODATION -->
+<section style="padding-bottom:0;">
+  <div class="slider">
+    <button class="slider-arrow" id="slider-prev" aria-label="Previous photo">&#8249;</button>
+    <div class="slider-frame">
+      <img id="slider-img" src="images/023.jpeg" alt="The cottage veranda, granite walls, and view over the plains">
+    </div>
+    <button class="slider-arrow" id="slider-next" aria-label="Next photo">&#8250;</button>
+  </div>
+  <div class="slider-dots" id="slider-dots"></div>
+</section>
+<script>
+  (function(){
+    var photos = [
+      { src: 'images/023.jpeg', alt: 'The cottage veranda, granite walls, and view over the plains' },
+      { src: 'images/001.jpeg', alt: 'Sunset over the rocky ridge' },
+      { src: 'images/003.jpeg', alt: 'Wildflower valley with mountains' },
+      { src: 'images/002.jpeg', alt: 'Storm clouds over the veld' },
+      { src: 'images/004.jpeg', alt: 'Gold wildflower meadow' },
+      { src: 'images/006.jpeg', alt: 'Goats resting on the property' }
+    ];
+    var idx = 0;
+    var img = document.getElementById('slider-img');
+    var dotsWrap = document.getElementById('slider-dots');
+    photos.forEach(function(_, i){
+      var d = document.createElement('span');
+      if (i === 0) d.className = 'active';
+      dotsWrap.appendChild(d);
+    });
+    function render(){
+      img.src = photos[idx].src;
+      img.alt = photos[idx].alt;
+      Array.prototype.forEach.call(dotsWrap.children, function(d, i){
+        d.className = (i === idx) ? 'active' : '';
+      });
+    }
+    document.getElementById('slider-prev').addEventListener('click', function(){
+      idx = (idx - 1 + photos.length) % photos.length; render();
+    });
+    document.getElementById('slider-next').addEventListener('click', function(){
+      idx = (idx + 1) % photos.length; render();
+    });
+  })();
+</script>
+
+<section class="hero-text" style="padding-top:50px;">
   <div class="container">
-    <p>Namaqualand is regarded as a biodiversity hotspot boasting the richest succulent flora on earth. Paardekraal Kliphuis puts you right in the heart of this remarkable landscape.</p>
-    <p>The self-catering stone cottage is nestled on a working farm between Springbok and Kamieskroon, where the rhythm is slow and it is easy to breathe. There are no crowds, no infrastructure to lean on and no shortcuts.</p>
-    <p>The land asks something of you and in return it gives you silence, strangeness and beauty of a kind that stays with you long after you left.</p>
+    <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin-bottom:28px;">Welcome to Paardekraal Kliphuis</h2>
+    <p style="max-width:720px;margin:0 auto 18px;">The cottage sits low against the land, at the foot of a mountain. Built from the same rough granite that litters the surrounding hillside. The stone is sun bleached, mortared together by hands that knew this landscape intimately.</p>
+    <p style="max-width:720px;margin:0 auto 18px;">The veranda faces North-East to catch the winter sun, with a braai-area to the one side and a simple wooden bench where you can watch the extraordinary light change over the plains.</p>
+    <p style="max-width:720px;margin:0 auto 18px;">When you step inside the thick walls announce themselves, keeping you cool in summer and holding warmth on cold winter nights. The fully equipped kitchen occupies one corner, with a built in fireplace for cooking or keeping warm, that leads to the comfortable couch in the lounge and glass doors that open onto the landscape.</p>
+    <p style="max-width:720px;margin:0 auto 18px;">The bedroom with an en-suite bathroom is unpretentious but deeply comfortable with a woodstove and a view of the rising sun.</p>
     <a href="book.html" class="btn btn-primary">Book Now</a>
   </div>
 </section>
