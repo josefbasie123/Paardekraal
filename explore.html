@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Accommodation | Paardekraal Kliphuis</title>
-<meta name="description" content="The self-catering stone cottage at Paardekraal Kliphuis — granite walls, veranda, kitchen and bedroom.">
+<title>Explore | Paardekraal Kliphuis</title>
+<meta name="description" content="Birdwatching, hiking and cycling at Paardekraal Kliphuis, Northern Cape.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
@@ -31,7 +31,6 @@
   a{color:inherit;}
   .container{max-width:1140px;margin:0 auto;padding:0 24px;}
   h1,h2,h3{font-family:'Playfair Display',Georgia,serif;color:var(--brown);font-weight:600;}
-  .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:700;color:var(--brown-soft);}
   .btn{
     display:inline-block;padding:14px 34px;border-radius:999px;font-weight:600;font-size:13px;
     letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;
@@ -55,27 +54,14 @@
   .logo{font-family:'Playfair Display',serif;font-weight:700;font-size:32px;letter-spacing:1.5px;text-transform:uppercase;}
   .tagline{font-size:15px;letter-spacing:1.5px;text-transform:uppercase;color:var(--brown-soft);margin-top:6px;}
 
-  /* HOUSE HERO */
+  /* HERO */
   .hero-wrap{padding:0 40px;}
   .hero-img{width:100%;height:56vh;min-height:340px;object-fit:cover;display:block;border-radius:8px;}
 
-  /* SINGLE-IMAGE SLIDER */
-  .slider{display:flex;align-items:center;gap:14px;padding:0 24px 0;max-width:1000px;margin:0 auto;}
-  .slider-arrow{
-    flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--brown);background:none;
-    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--brown);
-  }
-  .slider-arrow:hover{background:var(--brown);color:var(--white);}
-  .slider-frame{flex:1;overflow:hidden;border-radius:8px;}
-  .slider-frame img{width:100%;height:420px;object-fit:cover;display:block;}
-  .slider-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;}
-  .slider-dots span{width:8px;height:8px;border-radius:50%;background:var(--cream-dark);display:block;}
-  .slider-dots span.active{background:var(--terracotta-dark);}
-
-  /* WELCOME TEXT */
-  .welcome-text{text-align:center;max-width:720px;margin:0 auto;}
-  .welcome-text h2{font-size:30px;text-transform:uppercase;letter-spacing:1px;margin-bottom:28px;}
-  .welcome-text p{color:var(--brown-soft);margin-bottom:18px;}
+  /* ACTIVITY BLOCKS */
+  .activity-block{max-width:720px;margin:0 auto;text-align:center;}
+  .activity-block h2{font-size:30px;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;}
+  .activity-block p{color:var(--brown-soft);margin-bottom:16px;}
 
   /* FOOTER */
   footer{background:var(--brown);color:#d9c9b8;padding:60px 0 26px;}
@@ -106,65 +92,38 @@
 </header>
 
 <div class="hero-wrap">
-  <img class="hero-img" src="images/023.jpeg" alt="The cottage veranda, granite walls, and view over the plains">
+  <img class="hero-img" src="images/002.jpeg" alt="Storm clouds over the open veld">
 </div>
 
 <hr class="divider">
-<!-- SLIDER -->
-<section style="padding:70px 0;">
-  <div class="slider">
-    <button class="slider-arrow" id="slider-prev" aria-label="Previous photo">&#8249;</button>
-    <div class="slider-frame">
-      <img id="slider-img" src="images/023.jpeg" alt="The cottage veranda, granite walls, and view over the plains">
-    </div>
-    <button class="slider-arrow" id="slider-next" aria-label="Next photo">&#8250;</button>
-  </div>
-  <div class="slider-dots" id="slider-dots"></div>
-</section>
-<script>
-  (function(){
-    var photos = [
-      { src: 'images/023.jpeg', alt: 'The cottage veranda, granite walls, and view over the plains' },
-      { src: 'images/001.jpeg', alt: 'Sunset over the rocky ridge' },
-      { src: 'images/003.jpeg', alt: 'Wildflower valley with mountains' },
-      { src: 'images/002.jpeg', alt: 'Storm clouds over the veld' },
-      { src: 'images/004.jpeg', alt: 'Gold wildflower meadow' },
-      { src: 'images/006.jpeg', alt: 'Goats resting on the property' }
-    ];
-    var idx = 0;
-    var img = document.getElementById('slider-img');
-    var dotsWrap = document.getElementById('slider-dots');
-    photos.forEach(function(_, i){
-      var d = document.createElement('span');
-      if (i === 0) d.className = 'active';
-      dotsWrap.appendChild(d);
-    });
-    function render(){
-      img.src = photos[idx].src;
-      img.alt = photos[idx].alt;
-      Array.prototype.forEach.call(dotsWrap.children, function(d, i){
-        d.className = (i === idx) ? 'active' : '';
-      });
-    }
-    document.getElementById('slider-prev').addEventListener('click', function(){
-      idx = (idx - 1 + photos.length) % photos.length; render();
-    });
-    document.getElementById('slider-next').addEventListener('click', function(){
-      idx = (idx + 1) % photos.length; render();
-    });
-  })();
-</script>
-
-<hr class="divider">
-<!-- WELCOME -->
 <section>
   <div class="container">
-    <div class="welcome-text">
-      <h2>Welcome to Paardekraal Kliphuis</h2>
-      <p>The cottage sits low against the land, at the foot of a mountain. Built from the same rough granite that litters the surrounding hillside. The stone is sun bleached, mortared together by hands that knew this landscape intimately.</p>
-      <p>The veranda faces North-East to catch the winter sun, with a braai-area to the one side and a simple wooden bench where you can watch the extraordinary light change over the plains.</p>
-      <p>When you step inside the thick walls announce themselves, keeping you cool in summer and holding warmth on cold winter nights. The fully equipped kitchen occupies one corner, with a built in fireplace for cooking or keeping warm, that leads to the comfortable couch in the lounge and glass doors that open onto the landscape.</p>
-      <p>The bedroom with an en-suite bathroom is unpretentious but deeply comfortable with a woodstove and a view of the rising sun.</p>
+    <div class="activity-block">
+      <h2>Bird Watching</h2>
+      <p>This semi-arid land is one of the world's biodiversity hotspots and the bird community reflects this richness. A mosaic of micro-habitats support a surprising diversity of species.</p>
+      <p>Namaqualand however is not a place of easy ticks and dense flocks. It rewards the traveler who slows down, tunes their ear to the silence and learns to read a landscape that hides its riches in plain sight.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+<section>
+  <div class="container">
+    <div class="activity-block">
+      <h2>Hiking</h2>
+      <p>The hiking landscape consists of open plains which are seemingly featureless from a distance, but alive underfoot with quartz pebbles, dwarf succulents, lizard tracks and plants that have learned to survive on almost nothing.</p>
+      <p>Rounded boulder-strewn rocky outcrops punctuate the plains. Scrambling between boulders worn smooth over millennia, you will find cool shade, surprising plant life clinging to cracks and from the top panoramic views across a landscape that seems to go on forever.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+<section>
+  <div class="container">
+    <div class="activity-block">
+      <h2>Cycling</h2>
+      <p>The road network is any gravel cyclist's quiet dream. The gradients on the plains are gentle and generally rideable on a gravel bike or mountain bike.</p>
+      <p>The scenery shifts slowly as you move through it. Cycling gives you something driving never can: the smell of the shrubs, the sound of wind and larks and the full physical experience of the scale of the landscape. The rewards in solitude and scenery are exceptional.</p>
       <a href="book.html" class="btn btn-primary" style="margin-top:14px;">Book Now</a>
     </div>
   </div>
