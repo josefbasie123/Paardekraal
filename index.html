@@ -306,6 +306,74 @@
 </section>
 
 <hr class="divider">
+<!-- LOCATION -->
+<section id="location">
+  <div class="container">
+    <div style="text-align:center;max-width:720px;margin:0 auto 40px;">
+      <span class="eyebrow">Location Overview</span>
+      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 20px;">Namaqualand, Northern Cape</h2>
+      <p style="color:var(--brown-soft);margin-bottom:14px;">Paardekraal is situated on the R539 Droëdap road, roughly between the two towns of Springbok and Kamieskroon. The Droëdap road is a quiet gravel road that peels away from the main N7 and you will find us where the Buffels River crosses the road.</p>
+      <p style="color:var(--brown-soft);margin-bottom:14px;">Kamieskroon to the South, lies at the foothills of the Kamiesberge, at an elevation of approximately 800m. Springbok to the North is the largest town in Namaqualand, with roots dating back to the 1850s. It provides all vital amenities like fuel, shops, restaurants and it is an easy drive from the farm.</p>
+      <p style="color:var(--brown-soft);">Guests are advised that a vehicle with sufficient ground clearance is essential as the road to the cottage is a gravel road with rough and rocky sections.</p>
+    </div>
+    <div id="map" style="width:100%;height:420px;border-radius:var(--radius);box-shadow:var(--shadow);background:var(--cream-dark);"></div>
+    <div style="text-align:center;margin-top:20px;">
+      <a id="gmaps-link" href="#" target="_blank" rel="noopener" class="btn btn-outline">Open in Google Maps</a>
+    </div>
+  </div>
+</section>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  (function () {
+    var map = L.map('map', { zoomControl: true });
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: '© <a href="https://www.esri.com">Esri</a>, Maxar, Earthstar Geographics',
+      maxZoom: 19
+    }).addTo(map);
+    var lat = -29.950387, lng = 17.961001;
+    map.setView([lat, lng], 15);
+    L.marker([lat, lng]).addTo(map)
+      .bindPopup('<strong>Paardekraal Kliphuis Reception</strong><br>Northern Cape, South Africa')
+      .openPopup();
+    document.getElementById('gmaps-link').href = 'https://www.google.com/maps?q=' + lat + ',' + lng;
+  })();
+</script>
+
+<hr class="divider">
+<!-- GALLERY -->
+<section id="gallery" style="background:var(--cream-dark);">
+  <div class="container">
+    <div style="text-align:center;max-width:680px;margin:0 auto 40px;">
+      <span class="eyebrow">Photo Gallery</span>
+      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:14px 0;">A Look Around the Property</h2>
+    </div>
+    <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;"></div>
+  </div>
+</section>
+<script>
+  (function(){
+    var files = ['001','002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','018','019','020','021','022','023','024','025','026','027','028','029','030'];
+    var grid = document.getElementById('gallery-grid');
+    files.forEach(function(n){
+      var a = document.createElement('a');
+      a.href = 'images/' + n + '.jpeg';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.style.cssText = 'display:block;overflow:hidden;border-radius:8px;';
+      var img = document.createElement('img');
+      img.src = 'images/' + n + '.jpeg';
+      img.alt = 'Paardekraal Kliphuis';
+      img.style.cssText = 'width:100%;height:180px;object-fit:cover;display:block;transition:transform .3s;';
+      img.onmouseover = function(){ this.style.transform = 'scale(1.05)'; };
+      img.onmouseout = function(){ this.style.transform = 'scale(1)'; };
+      a.appendChild(img);
+      grid.appendChild(a);
+    });
+  })();
+</script>
+
+<hr class="divider">
 <!-- WELCOME -->
 <section id="welcome" style="padding:0;">
   <div class="split">
@@ -332,21 +400,6 @@
     A Destination Worth The Journey <span>✦</span>
   </div>
 </div>
-
-<hr class="divider">
-<!-- LOCATION -->
-<section id="location" style="padding:0;">
-  <div class="split">
-    <div class="split-text">
-      <span class="eyebrow">Location Overview</span>
-      <h2>Namaqualand, Northern Cape</h2>
-      <p>Paardekraal Kliphuis sits on the R539 Droëdap road, on a working farm between Springbok and Kamieskroon. The rhythm here is slow, and it is easy to breathe.</p>
-      <p>The road in requires reasonable ground clearance — please check with us before you travel if you are unsure about your vehicle. Close to Namaqua National Park and the Skilpad Wildflower Reserve.</p>
-      <a href="https://www.google.com/maps?q=-29.950387,17.961001" target="_blank" rel="noopener" class="btn btn-outline">Explore Location</a>
-    </div>
-    <img src="images/002.jpeg" alt="Storm clouds over the veld">
-  </div>
-</section>
 
 <hr class="divider">
 <!-- FAQ -->
@@ -379,34 +432,6 @@
   </div>
 </section>
 
-<hr class="divider">
-<!-- PACKAGES -->
-<section id="packages" style="background:var(--cream-dark);">
-  <div class="container">
-    <div class="packages-wrap">
-      <div class="packages-text">
-        <span class="eyebrow">Packages</span>
-        <h2>Enhance Your Stay</h2>
-        <p>Whether you're seeking romance, family fun, or adventure, we have something to make your experience unforgettable. Details on our packages are on the way — message us directly for current rates.</p>
-        <a href="#contact" class="btn btn-outline">View Packages</a>
-      </div>
-      <div class="packages-list">
-        <div class="package-row">
-          <h3>Package Name</h3>
-          <p>Details coming soon</p>
-        </div>
-        <div class="package-row">
-          <h3>Package Name</h3>
-          <p>Details coming soon</p>
-        </div>
-        <div class="package-row">
-          <h3>Package Name</h3>
-          <p>Details coming soon</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <hr class="divider">
 <!-- COMMITTED -->
@@ -487,7 +512,7 @@
         <li><a href="#top">Home</a></li>
         <li><a href="#welcome">About</a></li>
         <li><a href="accommodation.html">Accommodation</a></li>
-        <li><a href="#packages">Packages</a></li>
+        <li><a href="book.html#packages">Packages</a></li>
         <li><a href="explore.html">Explore</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
