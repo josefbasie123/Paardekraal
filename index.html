@@ -54,14 +54,14 @@
   }
   .nav-toggle span{display:block;width:26px;height:2.5px;border-radius:2px;background:var(--brown);}
   .logo-stack{text-align:left;}
-  .logo{font-family:'Playfair Display',serif;font-weight:700;font-size:32px;letter-spacing:1.5px;text-transform:uppercase;}
-  .tagline{font-size:15px;letter-spacing:1.5px;text-transform:uppercase;color:var(--brown-soft);margin-top:6px;}
+  .logo{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(20px, 6vw, 32px);letter-spacing:1.5px;text-transform:uppercase;}
+  .tagline{font-size:clamp(10px, 2.6vw, 15px);letter-spacing:1.5px;text-transform:uppercase;color:var(--brown-soft);margin-top:6px;}
 
   /* HERO */
   .hero-wrap{padding:0 40px;}
   .hero-img{width:100%;height:56vh;min-height:340px;object-fit:cover;display:block;border-radius:8px;}
   .hero-text{text-align:center;padding:90px 0 70px;}
-  .hero-text h1{font-size:38px;line-height:1.25;max-width:760px;margin:0 auto 18px;text-transform:uppercase;letter-spacing:1px;}
+  .hero-text h1{font-size:clamp(26px, 7vw, 38px);line-height:1.25;max-width:760px;margin:0 auto 18px;text-transform:uppercase;letter-spacing:1px;}
   .hero-text p{max-width:520px;margin:0 auto 34px;color:var(--brown-soft);font-size:16px;}
 
   /* ACTIVITY BLOCKS */
@@ -95,7 +95,7 @@
   @media(min-width:860px){.split{grid-template-columns:1fr 1fr;}}
   .split img{width:100%;height:100%;object-fit:cover;min-height:340px;}
   .split-text{display:flex;flex-direction:column;justify-content:center;padding:60px;text-align:center;}
-  .split-text h2{font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:10px 0 18px;}
+  .split-text h2{font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin:10px 0 18px;}
   .split-text p{color:var(--brown-soft);margin-bottom:14px;}
   .split-text .btn{margin-top:14px;align-self:center;}
 
@@ -110,7 +110,7 @@
   .faq-wrap{display:grid;gap:50px;grid-template-columns:1fr;align-items:center;}
   @media(min-width:860px){.faq-wrap{grid-template-columns:1fr 1fr;}}
   .faq-wrap img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow);}
-  .faq-head h2{font-size:30px;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;}
+  .faq-head h2{font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;}
   details.faq-item{border-bottom:1px solid #ddccb8;padding:16px 0;}
   details.faq-item summary{cursor:pointer;font-weight:600;color:var(--brown);list-style:none;display:flex;justify-content:space-between;align-items:center;}
   details.faq-item summary::-webkit-details-marker{display:none;}
@@ -123,7 +123,7 @@
   @media(min-width:860px){.packages-wrap{grid-template-columns:1fr 1fr;}}
   .packages-text{text-align:center;}
   @media(min-width:860px){.packages-text{text-align:left;}}
-  .packages-text h2{font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 16px;}
+  .packages-text h2{font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin:14px 0 16px;}
   .packages-text p{color:var(--brown-soft);margin-bottom:22px;}
   .packages-list{display:flex;flex-direction:column;}
   .package-row{border-top:1px solid #ddccb8;padding:26px 6px;text-align:center;}
@@ -134,7 +134,7 @@
   /* COMMITTED (plain text) */
   .committed{text-align:center;background:var(--cream-dark);}
   .committed .container{max-width:680px;}
-  .committed h2{font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 16px;}
+  .committed h2{font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin:14px 0 16px;}
   .committed p{color:var(--brown-soft);}
 
   /* CTA BANNER */
@@ -145,7 +145,7 @@
     background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
     padding:48px 40px;max-width:460px;width:90%;text-align:center;
   }
-  .cta-card h2{font-size:26px;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+  .cta-card h2{font-size:clamp(20px, 5.5vw, 26px);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
   .cta-card p{color:var(--brown-soft);margin-bottom:22px;font-size:14px;}
 
   /* CONTACT */
@@ -155,7 +155,7 @@
   .contact-photo{width:110px;height:110px;border-radius:50%;object-fit:cover;margin:0 auto 20px;box-shadow:var(--shadow);}
   .contact-info h3{font-size:20px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
   .contact-info p{color:var(--brown-soft);font-size:14px;}
-  .contact-form h2{font-size:28px;text-transform:uppercase;letter-spacing:1px;margin-bottom:22px;}
+  .contact-form h2{font-size:clamp(20px, 6vw, 28px);text-transform:uppercase;letter-spacing:1px;margin-bottom:22px;}
   form{display:flex;flex-direction:column;gap:16px;}
   .form-row{display:grid;gap:16px;grid-template-columns:1fr;}
   @media(min-width:600px){.form-row{grid-template-columns:1fr 1fr;}}
@@ -178,6 +178,29 @@
   .footer-contacts a:hover{color:var(--gold);}
   .footer-contacts svg{width:18px;height:18px;fill:currentColor;flex:none;}
   .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;margin-top:30px;font-size:12px;text-align:center;color:#a6957f;}
+
+  /* MOBILE */
+  @media(max-width:600px){
+    .container{padding:0 18px;}
+    section{padding:56px 0;}
+    header.nav{padding:14px 18px;}
+    .hero-wrap{padding:0 16px;}
+    .hero-img{height:38vh;min-height:220px;}
+    .hero-text{padding:56px 0 44px;}
+    .hero-text p{padding:0 6px;}
+    .split-text{padding:36px 22px;}
+    .slider{padding:0 4px;gap:8px;}
+    .slider-arrow{width:36px;height:36px;font-size:16px;}
+    .slider-frame img{height:240px;}
+    .strip{padding:0 4px 56px;gap:8px;}
+    .strip-arrow{width:36px;height:36px;font-size:16px;}
+    .strip-track img{height:140px;}
+    .cta-banner-img{height:340px;}
+    .cta-card{padding:28px 22px;width:88%;}
+    .btn{padding:12px 24px;font-size:12px;}
+    .marquee-track{font-size:12px;}
+    #map{height:280px !important;}
+  }
 </style>
 </head>
 <body>
@@ -258,7 +281,7 @@
 <hr class="divider">
 <section class="hero-text" style="padding-top:50px;">
   <div class="container">
-    <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin-bottom:28px;">Welcome to Paardekraal Kliphuis</h2>
+    <h2 style="font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin-bottom:28px;">Welcome to Paardekraal Kliphuis</h2>
     <p style="max-width:720px;margin:0 auto 18px;">The cottage sits low against the land, at the foot of a mountain. Built from the same rough granite that litters the surrounding hillside. The stone is sun bleached, mortared together by hands that knew this landscape intimately.</p>
     <p style="max-width:720px;margin:0 auto 18px;">The veranda faces North-East to catch the winter sun, with a braai-area to the one side and a simple wooden bench where you can watch the extraordinary light change over the plains.</p>
     <p style="max-width:720px;margin:0 auto 18px;">When you step inside the thick walls announce themselves, keeping you cool in summer and holding warmth on cold winter nights. The fully equipped kitchen occupies one corner, with a built in fireplace for cooking or keeping warm, that leads to the comfortable couch in the lounge and glass doors that open onto the landscape.</p>
@@ -275,7 +298,7 @@
 <section id="explore">
   <div class="container">
     <div class="activity-block">
-      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">Bird Watching</h2>
+      <h2 style="font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">Bird Watching</h2>
       <p style="color:var(--brown-soft);margin-bottom:16px;">This semi-arid land is one of the world's biodiversity hotspots and the bird community reflects this richness. A mosaic of micro-habitats support a surprising diversity of species.</p>
       <p style="color:var(--brown-soft);margin-bottom:16px;">Namaqualand however is not a place of easy ticks and dense flocks. It rewards the traveler who slows down, tunes their ear to the silence and learns to read a landscape that hides its riches in plain sight.</p>
     </div>
@@ -286,7 +309,7 @@
 <section style="background:var(--cream-dark);">
   <div class="container">
     <div class="activity-block">
-      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">Hiking</h2>
+      <h2 style="font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">Hiking</h2>
       <p style="color:var(--brown-soft);margin-bottom:16px;">The hiking landscape consists of open plains which are seemingly featureless from a distance, but alive underfoot with quartz pebbles, dwarf succulents, lizard tracks and plants that have learned to survive on almost nothing.</p>
       <p style="color:var(--brown-soft);margin-bottom:16px;">Rounded boulder-strewn rocky outcrops punctuate the plains. Scrambling between boulders worn smooth over millennia, you will find cool shade, surprising plant life clinging to cracks and from the top panoramic views across a landscape that seems to go on forever.</p>
     </div>
@@ -297,7 +320,7 @@
 <section>
   <div class="container">
     <div class="activity-block">
-      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">Cycling</h2>
+      <h2 style="font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">Cycling</h2>
       <p style="color:var(--brown-soft);margin-bottom:16px;">The road network is any gravel cyclist's quiet dream. The gradients on the plains are gentle and generally rideable on a gravel bike or mountain bike.</p>
       <p style="color:var(--brown-soft);margin-bottom:16px;">The scenery shifts slowly as you move through it. Cycling gives you something driving never can: the smell of the shrubs, the sound of wind and larks and the full physical experience of the scale of the landscape. The rewards in solitude and scenery are exceptional.</p>
       <a href="book.html" class="btn btn-primary" style="margin-top:14px;">Book Now</a>
@@ -311,7 +334,7 @@
   <div class="container">
     <div style="text-align:center;max-width:720px;margin:0 auto 40px;">
       <span class="eyebrow">Location Overview</span>
-      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 20px;">Namaqualand, Northern Cape</h2>
+      <h2 style="font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin:14px 0 20px;">Namaqualand, Northern Cape</h2>
       <p style="color:var(--brown-soft);margin-bottom:14px;">Paardekraal is situated on the R539 Droëdap road, roughly between the two towns of Springbok and Kamieskroon. The Droëdap road is a quiet gravel road that peels away from the main N7 and you will find us where the Buffels River crosses the road.</p>
       <p style="color:var(--brown-soft);margin-bottom:14px;">Kamieskroon to the South, lies at the foothills of the Kamiesberge, at an elevation of approximately 800m. Springbok to the North is the largest town in Namaqualand, with roots dating back to the 1850s. It provides all vital amenities like fuel, shops, restaurants and it is an easy drive from the farm.</p>
       <p style="color:var(--brown-soft);">Guests are advised that a vehicle with sufficient ground clearance is essential as the road to the cottage is a gravel road with rough and rocky sections.</p>
@@ -346,7 +369,7 @@
   <div class="container">
     <div style="text-align:center;max-width:680px;margin:0 auto 40px;">
       <span class="eyebrow">Photo Gallery</span>
-      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:1px;margin:14px 0;">A Look Around the Property</h2>
+      <h2 style="font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin:14px 0;">A Look Around the Property</h2>
     </div>
     <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;"></div>
   </div>
