@@ -60,7 +60,7 @@
   .tagline{font-size:clamp(10px, 2.6vw, 15px);letter-spacing:1.5px;text-transform:uppercase;color:var(--brown-soft);margin-top:6px;}
 
   /* HERO */
-  .hero-wrap{padding:0 40px;}
+  .hero-wrap{padding:0 64px;}
   .hero-img{width:100%;height:56vh;min-height:340px;object-fit:cover;display:block;border-radius:8px;}
   .hero-text{text-align:center;padding:90px 0 70px;}
   .hero-text h1{font-size:clamp(26px, 7vw, 38px);line-height:1.25;max-width:760px;margin:0 auto 18px;text-transform:uppercase;letter-spacing:1px;}
@@ -186,7 +186,7 @@
     .container{padding:0 18px;}
     section{padding:56px 0;}
     header.nav{padding:14px 18px;}
-    .hero-wrap{padding:0 16px;}
+    .hero-wrap{padding:0 26px;}
     .hero-img{height:38vh;min-height:220px;}
     .hero-text{padding:56px 0 44px;}
     .hero-text p{padding:0 6px;}
@@ -230,7 +230,7 @@
     <p>Namaqualand is regarded as a biodiversity hotspot boasting the richest succulent flora on earth. Paardekraal Kliphuis puts you right in the heart of this remarkable landscape.</p>
     <p>The self-catering stone cottage is nestled on a working farm between Springbok and Kamieskroon, where the rhythm is slow and it is easy to breathe. There are no crowds, no infrastructure to lean on and no shortcuts.</p>
     <p>The land asks something of you and in return it gives you silence, strangeness and beauty of a kind that stays with you long after you left.</p>
-    <a href="book.html" class="btn btn-primary">Book Now</a>
+    <a href="book.html" class="btn btn-primary">Book Your Stay</a>
   </div>
 </section>
 
@@ -288,7 +288,7 @@
     <p style="max-width:720px;margin:0 auto 18px;">The veranda faces North-East to catch the winter sun, with a braai-area to the one side and a simple wooden bench where you can watch the extraordinary light change over the plains.</p>
     <p style="max-width:720px;margin:0 auto 18px;">When you step inside the thick walls announce themselves, keeping you cool in summer and holding warmth on cold winter nights. The fully equipped kitchen occupies one corner, with a built in fireplace for cooking or keeping warm, that leads to the comfortable couch in the lounge and glass doors that open onto the landscape.</p>
     <p style="max-width:720px;margin:0 auto 18px;">The bedroom with an en-suite bathroom is unpretentious but deeply comfortable with a woodstove and a view of the rising sun.</p>
-    <a href="book.html" class="btn btn-primary">Book Now</a>
+    <a href="book.html" class="btn btn-primary">Book Your Stay</a>
   </div>
 </section>
 
@@ -325,7 +325,7 @@
       <h2 style="font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">Cycling</h2>
       <p style="color:var(--brown-soft);margin-bottom:16px;">The road network is any gravel cyclist's quiet dream. The gradients on the plains are gentle and generally rideable on a gravel bike or mountain bike.</p>
       <p style="color:var(--brown-soft);margin-bottom:16px;">The scenery shifts slowly as you move through it. Cycling gives you something driving never can: the smell of the shrubs, the sound of wind and larks and the full physical experience of the scale of the landscape. The rewards in solitude and scenery are exceptional.</p>
-      <a href="book.html" class="btn btn-primary" style="margin-top:14px;">Book Now</a>
+      <a href="book.html" class="btn btn-primary" style="margin-top:14px;">Book Your Stay</a>
     </div>
   </div>
 </section>
@@ -378,7 +378,7 @@
 </section>
 <script>
   (function(){
-    var files = ['001','002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','018','019','020','021','022','023','024','025','026','027','028','029','030'];
+    var files = ['001','002','003','004','005','007','008','009','010','011','012','013','014','015','016','017','018','019','020','021','022','023','024','025','026','027','028','029','030'];
     var grid = document.getElementById('gallery-grid');
     files.forEach(function(n){
       var a = document.createElement('a');
@@ -389,9 +389,10 @@
       var img = document.createElement('img');
       img.src = 'images/' + n + '.jpeg';
       img.alt = 'Paardekraal Kliphuis';
-      img.style.cssText = 'width:100%;height:180px;object-fit:cover;display:block;transition:transform .3s;';
-      img.onmouseover = function(){ this.style.transform = 'scale(1.05)'; };
-      img.onmouseout = function(){ this.style.transform = 'scale(1)'; };
+      var rotate = (n === '030') ? ' rotate(-90deg)' : '';
+      img.style.cssText = 'width:100%;height:180px;object-fit:cover;display:block;transition:transform .3s;transform:scale(1)' + rotate + ';';
+      img.onmouseover = function(){ this.style.transform = 'scale(1.05)' + rotate; };
+      img.onmouseout = function(){ this.style.transform = 'scale(1)' + rotate; };
       a.appendChild(img);
       grid.appendChild(a);
     });

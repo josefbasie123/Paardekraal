@@ -26,8 +26,14 @@
     min-height:100vh;display:flex;flex-direction:column;
   }
   a{color:inherit;text-decoration:none;}
-  header{padding:24px;text-align:center;border-bottom:1px solid rgba(36,31,25,0.08);}
+  header{padding:24px;text-align:center;border-bottom:1px solid rgba(36,31,25,0.08);position:relative;}
   .logo{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;letter-spacing:1.5px;text-transform:uppercase;}
+  .close-btn{
+    position:absolute;top:50%;right:24px;transform:translateY(-50%);
+    width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:20px;color:var(--brown-soft);border:1.5px solid rgba(36,31,25,0.15);
+  }
+  .close-btn:hover{color:var(--brown);border-color:var(--brown);}
 
   main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 20px;}
   .menu-list{width:100%;max-width:420px;display:flex;flex-direction:column;}
@@ -57,17 +63,17 @@
 
 <header>
   <a href="index.html" class="logo">Paardekraal Kliphuis</a>
+  <a href="index.html" class="close-btn" aria-label="Close menu">&times;</a>
 </header>
 
 <main>
   <nav class="menu-list" aria-label="Site menu">
     <a href="index.html#top">Home</a>
-    <a href="index.html#welcome">About</a>
     <a href="accommodation.html">Accommodation</a>
     <a href="book.html#packages">Packages</a>
     <a href="explore.html">Explore</a>
     <a href="index.html#contact">Contact</a>
-    <a href="book.html" class="book">Book Now</a>
+    <a href="book.html" class="book">Book Your Stay</a>
   </nav>
 </main>
 
