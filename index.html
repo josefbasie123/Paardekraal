@@ -61,7 +61,7 @@
 
   /* HERO */
   .hero-wrap{padding:0 104px;}
-  .hero-img{width:100%;height:56vh;min-height:340px;object-fit:cover;display:block;border-radius:8px;}
+  .hero-img{width:100%;height:58vh;min-height:378px;object-fit:cover;display:block;border-radius:8px;}
   .hero-text{text-align:center;padding:90px 0 70px;}
   .hero-text h1{font-size:clamp(26px, 7vw, 38px);line-height:1.25;max-width:760px;margin:0 auto 18px;text-transform:uppercase;letter-spacing:1px;}
   .hero-text p{max-width:520px;margin:0 auto 34px;color:var(--brown-soft);font-size:16px;}
@@ -187,7 +187,7 @@
     section{padding:56px 0;}
     header.nav{padding:14px 42px;}
     .hero-wrap{padding:0 42px;}
-    .hero-img{height:38vh;min-height:220px;}
+    .hero-img{height:40vh;min-height:258px;}
     .hero-text{padding:56px 0 44px;}
     .hero-text p{padding:0 6px;}
     .split-text{padding:36px 22px;}
@@ -236,10 +236,13 @@
 <hr class="divider">
 <!-- ACCOMMODATION -->
 <section style="padding-bottom:0;">
+  <div class="container" style="text-align:center;margin-bottom:30px;">
+    <span class="eyebrow">Accommodation</span>
+  </div>
   <div class="slider">
     <button class="slider-arrow" id="slider-prev" aria-label="Previous photo">&#8249;</button>
     <div class="slider-frame">
-      <img id="slider-img" src="images/023.jpeg" alt="The cottage veranda, granite walls, and view over the plains">
+      <img id="slider-img" src="images/032.jpeg" alt="The cottage at sunset with mountains behind">
     </div>
     <button class="slider-arrow" id="slider-next" aria-label="Next photo">&#8250;</button>
   </div>
@@ -248,12 +251,14 @@
 <script>
   (function(){
     var photos = [
-      { src: 'images/023.jpeg', alt: 'The cottage veranda, granite walls, and view over the plains' },
-      { src: 'images/001.jpeg', alt: 'Sunset over the rocky ridge' },
-      { src: 'images/003.jpeg', alt: 'Wildflower valley with mountains' },
-      { src: 'images/002.jpeg', alt: 'Storm clouds over the veld' },
-      { src: 'images/004.jpeg', alt: 'Gold wildflower meadow' },
-      { src: 'images/006.jpeg', alt: 'Goats resting on the property' }
+      { src: 'images/032.jpeg', alt: 'The cottage at sunset with mountains behind', pos: 'center' },
+      { src: 'images/033.jpeg', alt: 'Bathroom vanity and sink', pos: 'center 20%' },
+      { src: 'images/034.jpeg', alt: 'Bathroom with shower', pos: 'center' },
+      { src: 'images/035.jpeg', alt: 'Bedroom', pos: 'center' },
+      { src: 'images/036.jpeg', alt: 'Wood-burning stove', pos: 'center' },
+      { src: 'images/037.jpeg', alt: 'Kitchen', pos: 'center' },
+      { src: 'images/038.jpeg', alt: 'Bookshelf and entryway', pos: 'center 15%' },
+      { src: 'images/039.jpeg', alt: 'Living room with stone wall and cowhide rug', pos: 'center' }
     ];
     var idx = 0;
     var img = document.getElementById('slider-img');
@@ -266,6 +271,7 @@
     function render(){
       img.src = photos[idx].src;
       img.alt = photos[idx].alt;
+      img.style.objectPosition = photos[idx].pos || 'center';
       Array.prototype.forEach.call(dotsWrap.children, function(d, i){
         d.className = (i === idx) ? 'active' : '';
       });
@@ -276,6 +282,7 @@
     document.getElementById('slider-next').addEventListener('click', function(){
       idx = (idx + 1) % photos.length; render();
     });
+    render();
   })();
 </script>
 
@@ -302,7 +309,7 @@
       <h2 style="font-size:clamp(22px, 6vw, 30px);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;">Bird Watching</h2>
       <p style="color:var(--brown-soft);margin-bottom:16px;">This semi-arid land is one of the world's biodiversity hotspots and the bird community reflects this richness. A mosaic of micro-habitats support a surprising diversity of species.</p>
       <p style="color:var(--brown-soft);margin-bottom:16px;">Namaqualand however is not a place of easy ticks and dense flocks. It rewards the traveler who slows down, tunes their ear to the silence and learns to read a landscape that hides its riches in plain sight.</p>
-      <a href="birds.html" style="color:var(--brown);text-decoration:underline;font-weight:600;">View the full bird list</a>
+      <a href="birds.html" style="color:var(--brown);text-decoration:underline;font-weight:600;">List of Birds</a>
     </div>
   </div>
 </section>
@@ -378,7 +385,7 @@
 </section>
 <script>
   (function(){
-    var files = ['001','002','003','004','005','007','008','009','010','011','012','013','014','015','016','017','018','019','020','021','022','023','024','025','026','027','028','029','030','042','050','051','052','054','056'];
+    var files = ['042','050','051','052','054','056','001','002','003','004','005','007','008','009','010','011','012','013','014','015','016','017','018','019','020','021','022','023','024','025','026','027','028','029','030'];
     var grid = document.getElementById('gallery-grid');
     files.forEach(function(n){
       var a = document.createElement('a');
