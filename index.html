@@ -390,10 +390,9 @@
       var img = document.createElement('img');
       img.src = 'images/' + n + '.jpeg';
       img.alt = 'Paardekraal Kliphuis';
-      var rotate = (n === '030') ? ' rotate(-90deg)' : '';
-      img.style.cssText = 'width:100%;height:180px;object-fit:cover;display:block;transition:transform .3s;transform:scale(1)' + rotate + ';';
-      img.onmouseover = function(){ this.style.transform = 'scale(1.05)' + rotate; };
-      img.onmouseout = function(){ this.style.transform = 'scale(1)' + rotate; };
+      img.style.cssText = 'width:100%;height:180px;object-fit:cover;display:block;transition:transform .3s;';
+      img.onmouseover = function(){ this.style.transform = 'scale(1.05)'; };
+      img.onmouseout = function(){ this.style.transform = 'scale(1)'; };
       a.appendChild(img);
       grid.appendChild(a);
     });
