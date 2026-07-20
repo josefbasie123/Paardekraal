@@ -58,7 +58,12 @@
   .package-item summary::-webkit-details-marker{display:none;}
   .package-item summary::after{content:'+';font-size:20px;color:var(--terracotta-dark);}
   .package-item[open] summary::after{content:'–';}
-  .package-item .package-body{padding:0 4px 18px;color:var(--brown-soft);font-size:14px;font-style:italic;}
+  .package-item .package-body{padding:0 4px 18px;color:var(--brown-soft);font-size:14px;}
+  .package-body p{margin-bottom:12px;}
+  .package-body .included-label{display:block;font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-size:12px;color:var(--brown);margin-bottom:8px;}
+  .package-body ul{margin:0 0 14px 18px;}
+  .package-body li{margin-bottom:5px;}
+  .package-body .package-price{font-weight:700;color:var(--brown);font-size:15px;}
 
   #cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;}
   .cal-weekday{font-size:12px;color:var(--brown-soft);padding-bottom:6px;font-weight:600;}
@@ -128,11 +133,30 @@
 
     <details class="package-item">
       <summary>Weekend Getaway Package</summary>
-      <div class="package-body">What's included: details coming soon.</div>
+      <div class="package-body">
+        <p>Trade reality for a weekend of quiet contentment, perfect for a quick reset.</p>
+        <span class="included-label">What's Included</span>
+        <ul>
+          <li>Two night stay at Paardekraal Kliphuis</li>
+          <li>Complementary bottle of sparkling wine</li>
+          <li>Late check out</li>
+        </ul>
+        <p class="package-price">Total package price: R3600 for two</p>
+      </div>
     </details>
     <details class="package-item">
       <summary>Relaxation and Wellness Package</summary>
-      <div class="package-body">What's included: details coming soon.</div>
+      <div class="package-body">
+        <p>Ideal for those looking to relax, unwind and rejuvenate completely.</p>
+        <span class="included-label">What's Included</span>
+        <ul>
+          <li>Five night stay at Paardekraal Kliphuis</li>
+          <li>Complementary bottle of sparkling wine</li>
+          <li>Breakfast on the Plains</li>
+          <li>Late check out</li>
+        </ul>
+        <p class="package-price">Total package price: R7500</p>
+      </div>
     </details>
   </div>
 </main>
