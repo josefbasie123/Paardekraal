@@ -68,8 +68,8 @@
     display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--brown);
   }
   .slider-arrow:hover{background:var(--brown);color:var(--white);}
-  .slider-frame{flex:1;overflow:hidden;border-radius:8px;background:var(--cream-dark);}
-  .slider-frame img{width:100%;height:320px;object-fit:contain;display:block;}
+  .slider-frame{flex:1;overflow:hidden;border-radius:8px;}
+  .slider-frame img{width:100%;height:320px;object-fit:cover;display:block;}
   .slider-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;}
   .slider-dots span{width:8px;height:8px;border-radius:50%;background:var(--cream-dark);display:block;}
   .slider-dots span.active{background:var(--terracotta-dark);}
@@ -135,14 +135,14 @@
 <script>
   (function(){
     var photos = [
-      { src: 'images/032.jpeg', alt: 'The cottage at sunset with mountains behind' },
-      { src: 'images/033.jpeg', alt: 'Bathroom vanity and sink' },
-      { src: 'images/034.jpeg', alt: 'Bathroom with shower' },
-      { src: 'images/035.jpeg', alt: 'Bedroom' },
-      { src: 'images/036.jpeg', alt: 'Wood-burning stove' },
-      { src: 'images/037.jpeg', alt: 'Kitchen' },
-      { src: 'images/038.jpeg', alt: 'Bookshelf and entryway' },
-      { src: 'images/039.jpeg', alt: 'Living room with stone wall and cowhide rug' }
+      { src: 'images/032.jpeg', alt: 'The cottage at sunset with mountains behind', pos: 'center' },
+      { src: 'images/033.jpeg', alt: 'Bathroom vanity and sink', pos: 'center 20%' },
+      { src: 'images/034.jpeg', alt: 'Bathroom with shower', pos: 'center' },
+      { src: 'images/035.jpeg', alt: 'Bedroom', pos: 'center' },
+      { src: 'images/036.jpeg', alt: 'Wood-burning stove', pos: 'center' },
+      { src: 'images/037.jpeg', alt: 'Kitchen', pos: 'center' },
+      { src: 'images/038.jpeg', alt: 'Bookshelf and entryway', pos: 'center 15%' },
+      { src: 'images/039.jpeg', alt: 'Living room with stone wall and cowhide rug', pos: 'center' }
     ];
     var idx = 0;
     var img = document.getElementById('slider-img');
@@ -155,6 +155,7 @@
     function render(){
       img.src = photos[idx].src;
       img.alt = photos[idx].alt;
+      img.style.objectPosition = photos[idx].pos || 'center';
       Array.prototype.forEach.call(dotsWrap.children, function(d, i){
         d.className = (i === idx) ? 'active' : '';
       });
