@@ -63,6 +63,18 @@
   /* HERO */
   .hero-wrap{padding:0 104px;}
   .hero-img{width:100%;height:58vh;min-height:378px;object-fit:cover;display:block;border-radius:8px;}
+  .hero-slider{position:relative;}
+  .hero-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;
+    border:none;background:rgba(36,31,25,0.35);color:var(--white);display:flex;align-items:center;
+    justify-content:center;cursor:pointer;font-size:20px;
+  }
+  .hero-arrow:hover{background:rgba(36,31,25,0.55);}
+  .hero-arrow.prev{left:16px;}
+  .hero-arrow.next{right:16px;}
+  .hero-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;}
+  .hero-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.5);display:block;}
+  .hero-dots span.active{background:var(--white);}
   .hero-text{text-align:center;padding:90px 0 70px;}
   .hero-text h1{font-size:clamp(26px, 7vw, 38px);line-height:1.25;max-width:760px;margin:0 auto 18px;text-transform:uppercase;letter-spacing:1px;}
   .hero-text p{max-width:520px;margin:0 auto 34px;color:var(--brown-soft);font-size:16px;}
@@ -203,6 +215,7 @@
     header.nav{padding:14px 42px;}
     .hero-wrap{padding:0 42px;}
     .hero-img{height:40vh;min-height:258px;}
+    .hero-arrow{width:36px;height:36px;font-size:16px;}
     .hero-text{padding:56px 0 44px;}
     .hero-text p{padding:0 6px;}
     .split-text{padding:36px 22px;}
@@ -234,9 +247,50 @@
   </div>
 </header>
 
-<div class="hero-wrap">
-  <img id="top" class="hero-img" src="images/003.jpeg" alt="Orange wildflower valley under a blue sky at Paardekraal Kliphuis">
+<div class="hero-wrap" id="top">
+  <div class="hero-slider">
+    <img id="hero-slider-img" class="hero-img" src="images/001.jpeg" alt="Sunset over rocky hills at Paardekraal Kliphuis">
+    <button class="hero-arrow prev" id="hero-slider-prev" aria-label="Previous photo">&#8249;</button>
+    <button class="hero-arrow next" id="hero-slider-next" aria-label="Next photo">&#8250;</button>
+    <div class="hero-dots" id="hero-slider-dots"></div>
+  </div>
 </div>
+
+<script>
+  (function(){
+    var heroPhotos = [
+      { src: 'images/001.jpeg', alt: 'Sunset over rocky hills at Paardekraal Kliphuis' },
+      { src: 'images/002.jpeg', alt: 'Dramatic storm cloud over the mountains at dusk' },
+      { src: 'images/003.jpeg', alt: 'Orange wildflower valley under a blue sky at Paardekraal Kliphuis' },
+      { src: 'images/004.jpeg', alt: 'Yellow wildflower field with mountains in the distance' },
+      { src: 'images/028.jpeg', alt: 'Green valley view from the mountain pass' }
+    ];
+    var heroIdx = 0;
+    var heroImg = document.getElementById('hero-slider-img');
+    var heroDotsWrap = document.getElementById('hero-slider-dots');
+    heroPhotos.forEach(function(_, i){
+      var d = document.createElement('span');
+      if (i === 0) d.className = 'active';
+      heroDotsWrap.appendChild(d);
+    });
+    function heroRender(){
+      heroImg.src = heroPhotos[heroIdx].src;
+      heroImg.alt = heroPhotos[heroIdx].alt;
+      Array.prototype.forEach.call(heroDotsWrap.children, function(d, i){
+        d.className = (i === heroIdx) ? 'active' : '';
+      });
+    }
+    document.getElementById('hero-slider-prev').addEventListener('click', function(){
+      heroIdx = (heroIdx - 1 + heroPhotos.length) % heroPhotos.length; heroRender();
+    });
+    document.getElementById('hero-slider-next').addEventListener('click', function(){
+      heroIdx = (heroIdx + 1) % heroPhotos.length; heroRender();
+    });
+    setInterval(function(){
+      heroIdx = (heroIdx + 1) % heroPhotos.length; heroRender();
+    }, 6000);
+  })();
+</script>
 
 <!-- HERO TEXT -->
 <section class="hero-text">
